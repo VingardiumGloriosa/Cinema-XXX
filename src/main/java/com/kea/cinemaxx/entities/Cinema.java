@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter @Setter
@@ -26,6 +28,9 @@ public class Cinema {
     @Column(length = 20,nullable = false)
     String name;
 
+    @OneToMany (mappedBy = "cinema",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    List<Hall> halls = new ArrayList<>();
+
     public Cinema() {}
 
     public  Cinema(int numOfHalls, String address, int zipCode, String name){
@@ -33,6 +38,11 @@ public class Cinema {
         this.address = address;
         this.zipCode = zipCode;
         this.name = name;
+    }
+
+    public void addHall(Hall hall){
+        halls.add(hall);
+        hall.setHallId(this);
     }
 
 }
