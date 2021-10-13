@@ -15,11 +15,12 @@ import java.util.stream.StreamSupport;
 @JsonInclude (JsonInclude.Include.NON_NULL)
 public class SeatDTO {
 
+    int seatId;
     int row;
-    int column;
+    char column;
     boolean reserved;
 
-    public SeatDTO(int row, int column, boolean reserved){
+    public SeatDTO(int row, char column, boolean reserved){
         this.row = row;
         this.column = column;
         this.reserved = reserved;
@@ -29,6 +30,7 @@ public class SeatDTO {
         this.row = seat.getRow();
         this.column = seat.getColumn();
         this.reserved = seat.isReserved();
+        this.seatId = seat.getSeatId();
     }
 
     public static List<SeatDTO> SeatDTOSfromSeat(Iterable<Seat> seats){

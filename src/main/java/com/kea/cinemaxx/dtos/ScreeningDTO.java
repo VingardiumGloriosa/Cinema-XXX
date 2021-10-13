@@ -17,22 +17,25 @@ import java.util.stream.StreamSupport;
 @JsonInclude (JsonInclude.Include.NON_NULL)
 public class ScreeningDTO {
 
-    int id;
+    int screeningId;
     LocalTime time;
     LocalDate date; //should set date format? @JsonFormat(pattern = "dd-MM-YYYY")
-    String movie;
+    int movieId;
+    int hallId;
 
-    public ScreeningDTO(LocalTime time,  LocalDate date, String movie){
+    public ScreeningDTO(LocalTime time,  LocalDate date, int movieId, int hallId){
         this.time = time;
         this.date = date;
-        this.movie = movie;
+        this.movieId = movieId;
+        this.hallId = hallId;
     }
 
     public ScreeningDTO(Screening screening){
         this.time = screening.getTime();
         this.date = screening.getDate();
-        this.movie = screening.getMovie();
-        this.id = screening.getId();
+        this.movieId = screening.getMovieId();
+        this.hallId = screening.getHallId();
+        this.screeningId = screening.getScreeningId();
     }
 
     public static List<ScreeningDTO> ScreeningDTOSfromScreening(Iterable<Screening> screenings){
@@ -43,7 +46,7 @@ public class ScreeningDTO {
     }
 
     public static Screening screeningFromScreeningDTO(ScreeningDTO screening){
-        return new Screening(screening.getTime(),screening.getDate(),screening.getMovie());
+        return new Screening(screening.getTime(),screening.getDate(),screening.getMovieId(), screening.getHallId());
     }
 
 }

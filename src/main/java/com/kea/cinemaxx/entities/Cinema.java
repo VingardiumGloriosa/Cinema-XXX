@@ -1,6 +1,7 @@
 package com.kea.cinemaxx.entities;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -11,19 +12,27 @@ public class Cinema {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
+    int cinemaId;
 
-    @Column(length = 60,nullable = false)
-    String name;
+    @Column(length = 3, nullable = false)
+    int numOfHalls;
 
-    @Column(length = 60,nullable = false)
+    @Column(length = 30,nullable = false)
     String address;
 
-    public  Cinema(String name, String address){
-        this.name = name;
-        this.address = address;
-    }
+    @Column(length = 4, nullable = false)
+    int zipCode;
 
-    public Cinema(){}
+    @Column(length = 20,nullable = false)
+    String name;
+
+    public Cinema() {}
+
+    public  Cinema(int numOfHalls, String address, int zipCode, String name){
+        this.numOfHalls = numOfHalls;
+        this.address = address;
+        this.zipCode = zipCode;
+        this.name = name;
+    }
 
 }

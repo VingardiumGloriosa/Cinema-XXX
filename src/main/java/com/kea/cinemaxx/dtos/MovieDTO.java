@@ -15,18 +15,18 @@ import java.util.stream.StreamSupport;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class MovieDTO {
 
-    int id;
+    int movieId;
     String title;
-    String ratings;
+    int rating;
     String actors;
     Integer year;
     String genre;
     String description;
     Integer length;
 
-    public MovieDTO(String title, String ratings, String actors, Integer year, String genre, String description, Integer length){
+    public MovieDTO(String title, int rating, String actors, int year, String genre, String description, int length){
         this.title = title;
-        this.ratings = ratings;
+        this.rating = rating;
         this.actors = actors;
         this.year = year;
         this.genre = genre;
@@ -36,13 +36,13 @@ public class MovieDTO {
 
     public MovieDTO(Movie movie){
         this.title = movie.getTitle();
-        this.ratings = movie.getRatings();
+        this.rating = movie.getRating();
         this.actors = movie.getActors();
         this.year = movie.getYear();
         this.genre = movie.getGenre();
         this.description = movie.getDescription();
         this.length = movie.getLength();
-        this.id = movie.getId();
+        this.movieId = movie.getMovieId();
     }
 
     public static List<MovieDTO> MovieDTOSfromMovie(Iterable<Movie> movies){
@@ -53,7 +53,7 @@ public class MovieDTO {
     }
 
     public static Movie movieFromMovieDTO(MovieDTO movie){
-        return new Movie(movie.getTitle(),movie.getRatings(), movie.getActors(), movie.year, movie.getGenre(), movie.getDescription(), movie.getLength());
+        return new Movie(movie.getTitle(),movie.getRating(), movie.getActors(), movie.getYear(), movie.getGenre(), movie.getDescription(), movie.getLength());
     }
 
 }

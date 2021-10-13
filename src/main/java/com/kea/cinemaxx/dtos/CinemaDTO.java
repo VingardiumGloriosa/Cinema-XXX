@@ -15,19 +15,26 @@ import java.util.stream.StreamSupport;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class CinemaDTO {
 
-    int id;
-    String name;
+    int cinemaId;
+    int numOfHalls;
     String address;
+    int zipCode;
+    String name;
 
-    public CinemaDTO(String name, String address){
-        this.name = name;
+
+    public CinemaDTO(int numOfHalls, String address, int zipCode, String name) {
+        this.numOfHalls = numOfHalls;
         this.address = address;
+        this.zipCode = zipCode;
+        this.name = name;
     }
 
     public CinemaDTO(Cinema cinema){
-        this.name = cinema.getName();
+        this.numOfHalls = cinema.getNumOfHalls();
         this.address = cinema.getAddress();
-        this.id = cinema.getId();
+        this.zipCode = cinema.getZipCode();
+        this.name = cinema.getName();
+        this.cinemaId = cinema.getCinemaId();
     }
 
     public static List<CinemaDTO> CinemaDTOSfromCinema(Iterable<Cinema> cinemas){
@@ -38,7 +45,7 @@ public class CinemaDTO {
     }
 
     public static Cinema cinemaFromCinemaDTO(CinemaDTO cinema){
-        return new Cinema(cinema.getName(),cinema.getAddress());
+        return new Cinema(cinema.getNumOfHalls(), cinema.getAddress(), cinema.getZipCode(), cinema.getName());
     }
 
     //in Car demo there is a different version for member and car DTOs, where memeber oen also has a version without ID

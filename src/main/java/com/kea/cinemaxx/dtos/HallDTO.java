@@ -15,8 +15,9 @@ import java.util.stream.StreamSupport;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class HallDTO {
 
-    int id;
+    int hallId;
     int numberOfSeats;
+    int cinemaID;
 
     public HallDTO(int numberOfSeats){
         this.numberOfSeats = numberOfSeats;
@@ -24,7 +25,7 @@ public class HallDTO {
 
     public HallDTO(Hall hall){
         this.numberOfSeats = getNumberOfSeats();
-        this.id = hall.getId();
+        this.hallId = hall.getHallId();
     }
 
     public static List<HallDTO> HallDTOSfromHall(Iterable<Hall> halls){
@@ -35,7 +36,7 @@ public class HallDTO {
     }
 
     public static Hall hallFromHallDTO(HallDTO hall){
-        return new Hall(hall.getNumberOfSeats());
+        return new Hall(hall.getNumberOfSeats(), hall.getCinemaID());
     }
 
 

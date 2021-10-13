@@ -13,23 +13,27 @@ public class Screening {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
+    int screeningId;
 
     @Column(length = 60,nullable = false)
     LocalTime time;
 
-    @Column(length = 60,nullable = false) //added
+    @Column(length = 60,nullable = false)
     LocalDate date;
 
     @Column(length = 60,nullable = false) //is this needed or is this supposed to be from entity movie?
-    String movie;
+    int movieId;
 
-    public  Screening(LocalTime time, LocalDate date, String movie){
-        this.time = time;
-        this.date = date;
-        this.movie = movie;
-    }
+    @Column(length = 60, nullable = false)
+    int hallId;
 
     public Screening(){}
+
+    public  Screening(LocalTime time, LocalDate date, int movieId, int hallId){
+        this.time = time;
+        this.date = date;
+        this.movieId = movieId;
+        this.hallId = hallId;
+    }
 
 }

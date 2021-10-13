@@ -11,7 +11,7 @@ public class Ticket {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
+    int ticketId;
 
     @Column(length = 60,nullable = false)
     String reservationName;
@@ -19,11 +19,21 @@ public class Ticket {
     @Column(length = 60,nullable = false)
     String reservationEmail;
 
-    public  Ticket(String reservationName, String reservationEmail){
-        this.reservationName = reservationName;
-        this.reservationEmail = reservationEmail;
-    }
+    //they need to be entities
+
+    @Column
+    int seatId;
+
+    @Column
+    int screeningId;
 
     public Ticket(){}
+
+    public Ticket(String reservationName, String reservationEmail, int seatId, int screeningId) {
+        this.reservationName = reservationName;
+        this.reservationEmail = reservationEmail;
+        this.seatId = seatId;
+        this.screeningId = screeningId;
+    }
 
 }

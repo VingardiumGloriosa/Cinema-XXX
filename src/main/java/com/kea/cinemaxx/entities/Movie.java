@@ -11,19 +11,19 @@ public class Movie {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
+    int movieId;
 
     @Column(length = 60,nullable = false)
     String title;
 
     @Column(length = 60,nullable = false)
-    String ratings;
+    int rating;
 
     @Column(length = 60,nullable = false)
     String actors;
 
     @Column(length = 60,nullable = false)
-    Integer year;
+    int year;
 
     @Column(length = 60,nullable = false)
     String genre;
@@ -32,19 +32,18 @@ public class Movie {
     String description;
 
     @Column(length = 60,nullable = false)
-    Integer length;
+    int length;
 
+    public Movie(){}
 
-    public  Movie(String title, String ratings, String actors, Integer year, String genre, String description, Integer length){
+    public  Movie(String title, int rating, String actors, Integer year, String genre, String description, Integer length){
         this.title = title;
-        this.ratings = ratings;
+        this.rating = rating;
         this.actors = actors;
         this.year = year;
         this.genre = genre;
         this.description = description;
         this.length = length;
     }
-
-    public Movie(){}
 
 }

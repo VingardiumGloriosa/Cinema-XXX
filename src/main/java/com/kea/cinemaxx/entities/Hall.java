@@ -11,15 +11,18 @@ public class Hall {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
+    int hallId;
 
-    @Column(length = 60,nullable = false)
+    @Column(length = 4,nullable = false)
     int numberOfSeats;
 
-
-    public  Hall(int numberOfSeats){
-        this.numberOfSeats = numberOfSeats;
-    }
+    @Column(length = 60, nullable = false)
+    int cinemaId;
 
     public Hall(){}
+
+    public Hall(int numberOfSeats, int cinemaId) {
+        this.numberOfSeats = numberOfSeats;
+        this.cinemaId = cinemaId;
+    }
 }

@@ -15,9 +15,11 @@ import java.util.stream.StreamSupport;
 @JsonInclude (JsonInclude.Include.NON_NULL)
 public class TicketDTO {
 
-    int id;
+    int ticketId;
     String reservationName;
     String reservationEmail;
+    int seatId;
+    int screeningId;
 
     public TicketDTO(String reservationName, String reservationEmail){
         this.reservationName = reservationName;
@@ -27,7 +29,7 @@ public class TicketDTO {
     public TicketDTO(Ticket ticket){
         this.reservationName = ticket.getReservationName();
         this.reservationEmail = ticket.getReservationEmail();
-        this.id = ticket.getId();
+        this.ticketId = ticket.getTicketId();
     }
 
     public static List<TicketDTO> TicketDTOSfromTicket(Iterable<Ticket> tickets){
@@ -38,7 +40,7 @@ public class TicketDTO {
     }
 
     public static Ticket ticketFromTicketDTO(TicketDTO ticket){
-        return new Ticket(ticket.getReservationName(),ticket.getReservationEmail());
+        return new Ticket(ticket.getReservationName(),ticket.getReservationEmail(), ticket.getSeatId(), ticket.getScreeningId());
     }
 
 }
