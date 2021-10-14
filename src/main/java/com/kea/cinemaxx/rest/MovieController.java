@@ -1,5 +1,8 @@
 package com.kea.cinemaxx.rest;
 
+
+public class MovieController {
+
 import com.kea.cinemaxx.dtos.MovieDTO;
 import com.kea.cinemaxx.services.MovieService;
 import org.springframework.web.bind.annotation.*;
@@ -23,5 +26,5 @@ public class MovieController {
     List<MovieDTO> getMoviesByTitle(@RequestParam String title) {
         return movieService.getMoviesByTitle(title);
     }
-
+  
 }
