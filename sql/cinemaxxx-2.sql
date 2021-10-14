@@ -4,7 +4,7 @@ create table cinemas
         primary key,
     numOfHalls int not null,
     address varchar(30) not null,
-    zipCode int not null,
+    zipCode int default 0 not null,
     name varchar(20) not null
 );
 
