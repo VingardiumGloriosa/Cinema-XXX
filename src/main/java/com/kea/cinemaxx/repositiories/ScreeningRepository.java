@@ -17,8 +17,10 @@ public interface ScreeningRepository extends CrudRepository<Screening, Integer> 
     List<Screening> findScreeningByHall(Hall hall);
     List<Screening> findScreeningByMovie(Movie movie);
     List<Screening> findScreeningByCinema(Cinema cinema);
+    List<Screening> findScreeningByCinemaAndMovie(Cinema cinema, Movie movie);
     List<Screening> findScreeningByDateAndCinema(LocalDate date, Cinema Cinema);
     List<Screening> findScreeningByDateAndMovieAndCinema(LocalDate date, Movie movie, Cinema cinema);
+    List<Screening> findScreeningByDateBetweenAndMovieAndCinema(LocalDate startDate, LocalDate endDate, Movie movie, Cinema cinema);
     List<Screening> findAll();
 
     //    List<Screening> findScreeningByWeek(int weekNumber);
