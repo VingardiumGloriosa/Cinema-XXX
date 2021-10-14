@@ -1,8 +1,6 @@
 package com.kea.cinemaxx.services;
 
-import com.kea.cinemaxx.dtos.CinemaDTO;
 import com.kea.cinemaxx.dtos.ScreeningDTO;
-import com.kea.cinemaxx.entities.Screening;
 import com.kea.cinemaxx.repositiories.ScreeningRepository;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +22,7 @@ public class ScreeningService {
 //            ScreeningDTO.ScreeningDTOSfromScreening(screeningRepository.findAll());
 //        }
 //
-//      this is not completed, we need to change the entities a little bit.
+////      this is not completed, we need to change the entities a little bit.
 //
 //    }
 
