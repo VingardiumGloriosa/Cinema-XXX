@@ -17,12 +17,21 @@ import java.time.LocalTime;
 
 @Component
 @Profile("!test")
-public class DataSetup implements CommandLineRunner {
+public class DataSetup implements CommandLineRunner{
 
     CinemaRepository cinemaRepository;
     HallRepository hallRepository;
     ScreeningRepository screeningRepository;
     MovieRepository movieRepository;
+
+    public DataSetup(CinemaRepository cinemaRepository, HallRepository hallRepository, ScreeningRepository screeningRepository,MovieRepository movieRepository){
+        this.cinemaRepository = cinemaRepository;
+        this.hallRepository = hallRepository;
+        this.screeningRepository = screeningRepository;
+        this.movieRepository = movieRepository;
+    }
+
+
 
     @Override
     public void run(String... args) throws Exception {
