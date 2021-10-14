@@ -30,7 +30,7 @@ public class Movie {
     @Column(length = 60,nullable = false)
     String genre;
 
-    @Column(length = 60,nullable = false)
+    @Column(length = 1000,nullable = false)
     String description;
 
     @Column(length = 60,nullable = false)
