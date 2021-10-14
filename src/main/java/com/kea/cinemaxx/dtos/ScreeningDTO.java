@@ -27,16 +27,20 @@ public class ScreeningDTO {
     Hall hall;
     Cinema cinema;
 
-    public ScreeningDTO(LocalTime time,  LocalDate date, int movie, int hall){
+    public ScreeningDTO(LocalTime time,  LocalDate date, Movie movie, Hall hall, Cinema cinema){
         this.time = time;
         this.date = date;
-
-        // shouldn't this have the movie, hall and cinema too? i'm not sure
+        this.movie = movie;
+        this.hall = hall;
+        this.cinema = cinema;
     }
 
     public ScreeningDTO(Screening screening){
         this.time = screening.getTime();
         this.date = screening.getDate();
+        this.movie = screening.getMovie();
+        this.hall = screening.getHall();
+        this.cinema = screening.getCinema();
         this.screeningId = screening.getScreeningId();
     }
 

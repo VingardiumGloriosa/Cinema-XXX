@@ -13,19 +13,19 @@ public class CinemaController {
 
     public CinemaController(CinemaService cinemaService){this.cinemaService = cinemaService;}
 
+//    @GetMapping
+//    List<CinemaDTO> getCinemas(@RequestParam(required = false) int zipCode,
+//                               @RequestParam(required = false) String name){
+////            if(zipCode == 0 && name != null){
+////                //We will eventually handle this better
+////                throw new IllegalArgumentException("make is required when name is supplied");
+////            }
+//        return cinemaService.getCinemas(zipCode,name);
+//    }
+
     @GetMapping
     List<CinemaDTO> getCinemas(){
         return cinemaService.getCinemas();
-    }
-
-    @GetMapping
-    List<CinemaDTO> getCinemas(@RequestParam(required = false) int zipCode,
-                               @RequestParam(required = false) String name){
-//            if(zipCode == 0 && name != null){
-//                //We will eventually handle this better
-//                throw new IllegalArgumentException("make is required when name is supplied");
-//            }
-        return cinemaService.getCinemas(zipCode,name);
     }
 
     @GetMapping("/id/{cinemaId}")
