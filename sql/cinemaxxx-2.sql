@@ -4,7 +4,7 @@ create table cinemas
         primary key,
     numOfHalls int not null,
     address varchar(30) not null,
-    zipCode int not null,
+    zipCode int default 0 not null,
     name varchar(20) not null
 );
 
@@ -39,6 +39,9 @@ create table screenings
     movieId int default 0 not null,
     date date default '2000-01-01' not null,
     hallId int not null,
+    cinemaId int not null,
+    constraint screenings_cinemas_cinemaId_fk
+        foreign key (cinemaId) references cinemas (cinemaId),
     constraint screenings_halls_hallId_fk
         foreign key (hallId) references halls (hallId),
     constraint screenings_movies_movieId_fk
@@ -76,4 +79,6 @@ create table tickets
     constraint tickets_seats_seatId_fk
         foreign key (seatId) references seats (seatId)
 );
+
+
 

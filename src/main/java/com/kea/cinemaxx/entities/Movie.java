@@ -19,7 +19,7 @@ public class Movie {
     String title;
 
     @Column(length = 60,nullable = false)
-    int rating;
+    int rating; //this is AGE RESTRICTION for now = min age required
 
     @Column(length = 60,nullable = false)
     String actors;
@@ -34,7 +34,7 @@ public class Movie {
     String description;
 
     @Column(length = 60,nullable = false)
-    int length;
+    int length; //in minutes?
 
     @OneToMany (mappedBy = "movie",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     List<Screening> screenings = new ArrayList<>();

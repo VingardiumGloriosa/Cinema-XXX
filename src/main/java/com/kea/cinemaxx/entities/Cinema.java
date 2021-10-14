@@ -23,7 +23,7 @@ public class Cinema {
     String address;
 
     @Column(length = 4, nullable = false)
-    int zipCode;
+    int zipCode;                            // I set the default zipCode to 0!!!!!!!!
 
     @Column(length = 20,nullable = false)
     String name;
