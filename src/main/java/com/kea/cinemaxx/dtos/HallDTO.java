@@ -1,6 +1,7 @@
 package com.kea.cinemaxx.dtos;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.kea.cinemaxx.entities.Cinema;
 import com.kea.cinemaxx.entities.Hall;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,7 +18,7 @@ public class HallDTO {
 
     int hallId;
     int numberOfSeats;
-    int cinemaID;
+    Cinema cinema;
 
     public HallDTO(int numberOfSeats){
         this.numberOfSeats = numberOfSeats;
@@ -36,7 +37,7 @@ public class HallDTO {
     }
 
     public static Hall hallFromHallDTO(HallDTO hall){
-        return new Hall(hall.getNumberOfSeats(), hall.get, hall.getHallId());
+        return new Hall(hall.getNumberOfSeats(), hall.getCinema(), hall.getHallId());
     }
 
 
