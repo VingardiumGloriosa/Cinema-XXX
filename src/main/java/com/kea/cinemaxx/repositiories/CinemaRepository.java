@@ -9,11 +9,7 @@ public interface CinemaRepository extends CrudRepository<Cinema,Integer> {
 
     List<Cinema> findCinemaByZipCode(int zipCode);
     List<Cinema> findCinemaByName(String name);
+    List<Cinema> findCinemaByZipCodeAndName(int zipCode, String name);
+    List<Cinema> findAll();
 
 }
-
-
-// example: List<Car> findCarByBrand(String brand);
-//    List<Car> findCarByBrandAndModel(String brand, String model);
-//    List<Car> findCarByPricePrDayLessThan(double pricePrDay);
-//    List<Car> findCarByPricePrDayLessThanEqual(double pricePrDay);
