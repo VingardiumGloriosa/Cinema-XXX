@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter @Setter
@@ -16,13 +18,22 @@ public class Hall {
     @Column(length = 4,nullable = false)
     int numberOfSeats;
 
-    @Column(length = 60, nullable = false)
-    int cinemaId;
+//    @Column(length = 60, nullable = false)
+//    int cinemaId;
+
+    @ManyToOne
+    @JoinColumn(name="cinema_id", nullable=false)
+    Cinema cinema;
+
+    @OneToMany (mappedBy = "hall",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    List<Screening> screenings = new ArrayList<>();
 
     public Hall(){}
 
-    public Hall(int numberOfSeats, int cinemaId) {
+    public Hall(int numberOfSeats, Cinema cinema, int hallId) {
         this.numberOfSeats = numberOfSeats;
-        this.cinemaId = cinemaId;
+        this.cinema = cinema;
+        this.hallId = hallId;
     }
+
 }

@@ -21,19 +21,29 @@ public class Screening {
     @Column(length = 60,nullable = false)
     LocalDate date;
 
-    @Column(length = 60,nullable = false) //is this needed or is this supposed to be from entity movie?
-    int movieId;
+//    @Column(length = 60,nullable = false) //is this needed or is this supposed to be from entity movie?
+//    int movieId;
+//
+//    @Column(length = 60, nullable = false)
+//    int hallId;
 
-    @Column(length = 60, nullable = false)
-    int hallId;
+    @ManyToOne
+    @JoinColumn(name="hall_id", nullable=false)
+    Hall hall;
+
+    @ManyToOne
+    @JoinColumn(name="movie_id", nullable=false)
+    Movie movie;
 
     public Screening(){}
 
-    public  Screening(LocalTime time, LocalDate date, int movieId, int hallId){
+    public  Screening(LocalTime time, LocalDate date, Movie movie, Hall hall){
         this.time = time;
         this.date = date;
-        this.movieId = movieId;
-        this.hallId = hallId;
+        this.hall = hall;
+        this.movie = movie;
     }
+
+    public void getMovie(Movie movie){this.movie = movie;}
 
 }

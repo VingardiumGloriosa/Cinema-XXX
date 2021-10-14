@@ -23,18 +23,14 @@ public class ScreeningDTO {
     int movieId;
     int hallId;
 
-    public ScreeningDTO(LocalTime time,  LocalDate date, int movieId, int hallId){
+    public ScreeningDTO(LocalTime time,  LocalDate date, int movie, int hall){
         this.time = time;
         this.date = date;
-        this.movieId = movieId;
-        this.hallId = hallId;
     }
 
     public ScreeningDTO(Screening screening){
         this.time = screening.getTime();
         this.date = screening.getDate();
-        this.movieId = screening.getMovieId();
-        this.hallId = screening.getHallId();
         this.screeningId = screening.getScreeningId();
     }
 
@@ -46,7 +42,7 @@ public class ScreeningDTO {
     }
 
     public static Screening screeningFromScreeningDTO(ScreeningDTO screening){
-        return new Screening(screening.getTime(),screening.getDate(),screening.getMovieId(), screening.getHallId());
+        return new Screening(screening.getTime(),screening.getDate(), screening.);
     }
 
 }
