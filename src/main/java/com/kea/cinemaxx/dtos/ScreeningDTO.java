@@ -38,6 +38,9 @@ public class ScreeningDTO {
     public ScreeningDTO(Screening screening){
         this.time = screening.getTime();
         this.date = screening.getDate();
+        this.movie = screening.getMovie();
+        this.hall = screening.getHall();
+        this.cinema = screening.getCinema();
         this.screeningId = screening.getScreeningId();
     }
 
