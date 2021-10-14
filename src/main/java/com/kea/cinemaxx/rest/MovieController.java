@@ -12,14 +12,17 @@ public class MovieController {
 
     public MovieController(MovieService movieService){this.movieService = movieService;}
 
-    @GetMapping("/{movieId}")
+    @GetMapping("/id/{movieId}")
     MovieDTO getMovie(@PathVariable int movieId) {
         return movieService.getMovie(movieId);
     }
 
-    @GetMapping
-    List<MovieDTO> getMoviesByTitle(@RequestParam String title) {
+    @GetMapping("/title/{title}")
+    List<MovieDTO> getMoviesByTitle(@PathVariable String title) {
         return movieService.getMoviesByTitle(title);
     }
+
+    @GetMapping
+    List<MovieDTO> getAllMovies(){return movieService.getMovies();}
   
 }
