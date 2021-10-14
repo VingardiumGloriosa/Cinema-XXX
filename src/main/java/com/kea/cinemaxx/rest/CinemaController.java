@@ -1,5 +1,4 @@
 package com.kea.cinemaxx.rest;
-
 import com.kea.cinemaxx.dtos.CinemaDTO;
 import com.kea.cinemaxx.services.CinemaService;
 import org.springframework.web.bind.annotation.*;
