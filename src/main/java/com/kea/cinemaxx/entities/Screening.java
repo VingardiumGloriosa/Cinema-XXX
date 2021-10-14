@@ -28,20 +28,25 @@ public class Screening {
 //    int hallId;
 
     @ManyToOne
-    @JoinColumn(name="hall_id", nullable=false)
+    @JoinColumn(name="hallId", nullable=false)
     Hall hall;
 
     @ManyToOne
-    @JoinColumn(name="movie_id", nullable=false)
+    @JoinColumn(name="movieId", nullable=false)
     Movie movie;
+
+    @ManyToOne
+    @JoinColumn(name="cinemaId", nullable = false)
+    Cinema cinema;
 
     public Screening(){}
 
-    public  Screening(LocalTime time, LocalDate date, Movie movie, Hall hall){
+    public  Screening(LocalTime time, LocalDate date, Movie movie, Hall hall, Cinema cinema){
         this.time = time;
         this.date = date;
         this.hall = hall;
         this.movie = movie;
+        this.cinema = cinema;
     }
 
 
