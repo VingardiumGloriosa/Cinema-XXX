@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface HallRepository extends CrudRepository<Hall, Integer> {
 
-    List<Hall> findHallByCinemaID (int cinemaId);
+    List<Hall> findHallByCinemaId (int cinemaId);
     List<Hall> findAll();
 
 }

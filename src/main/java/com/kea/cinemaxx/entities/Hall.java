@@ -22,7 +22,7 @@ public class Hall {
 //    int cinemaId;
 
     @ManyToOne
-    @JoinColumn(name="cinema_id", nullable=false)
+    @JoinColumn(name="cinemaId", nullable=false)
     Cinema cinema;
 
     @OneToMany (mappedBy = "hall",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
