@@ -16,6 +16,10 @@ public class CinemaService {
         this.cinemaRepository = cinemaRepository;
     }
 
+    public List<CinemaDTO> getCinemas() {
+        return CinemaDTO.CinemaDTOSfromCinema(cinemaRepository.findAll());
+    }
+
     public List<CinemaDTO> getCinemas(int zipCode, String name) {
         if(name!=null && zipCode!=0) {
             return CinemaDTO.CinemaDTOSfromCinema(cinemaRepository.findCinemaByZipCodeAndName(zipCode,name));
@@ -33,7 +37,6 @@ public class CinemaService {
         Cinema cinema = cinemaRepository.findById(cinemaId).orElseThrow();
         return new CinemaDTO(cinema);
     }
-
 
     // future additions:
         // add cinema()

@@ -12,4 +12,6 @@ public interface CinemaRepository extends CrudRepository<Cinema,Integer> {
     List<Cinema> findCinemaByZipCodeAndName(int zipCode, String name);
     List<Cinema> findAll();
 
+
+
 }
