@@ -13,6 +13,7 @@ import java.util.List;
 public class MovieService {
 
     MovieRepository movieRepository;
+    ScreeningService screeningService;
 
     public MovieService(MovieRepository movieRepository) {
         this.movieRepository = movieRepository;
@@ -37,5 +38,10 @@ public class MovieService {
     //    List<Movie> findMovieByActors(String actors);
     //    List<Movie> findMovieByTitle(String title);
     //    List<Movie> findMovieByGenre(String genre);
+
+    public void deleteMovie(int id){
+        screeningService.deleteScreeningByMovie(getMovie(id).getTitle());
+        movieRepository.deleteById(id);
+    }
 
 }

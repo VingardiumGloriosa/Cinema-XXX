@@ -129,4 +129,10 @@ public class ScreeningService {
         screeningRepository.deleteById(screeningId);
     }
 
+    public void deleteScreeningByMovie(String movie){
+        for (ScreeningDTO screening : getScreenings(null,null,null,movie)){
+            screeningRepository.deleteById(screening.getScreeningId());
+        }
+    }
+
 }
