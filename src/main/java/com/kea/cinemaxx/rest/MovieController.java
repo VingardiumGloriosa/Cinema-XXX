@@ -1,9 +1,7 @@
 package com.kea.cinemaxx.rest;
-
 import com.kea.cinemaxx.dtos.MovieDTO;
 import com.kea.cinemaxx.services.MovieService;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController

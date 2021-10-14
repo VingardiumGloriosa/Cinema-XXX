@@ -18,8 +18,8 @@ public class HallService {
         this.hallRepository = hallRepository;
     }
 
-    public List<HallDTO> getHalls(int cinemaId) {
-        try { return HallDTO.HallDTOSfromHall(hallRepository.findHallByCinemaID(cinemaId)); }
+    public List<HallDTO> getHalls(int hallId) {
+        try { return HallDTO.HallDTOSfromHall(hallRepository.findHallByHallId(hallId)); }
         catch(Exception e) { return HallDTO.HallDTOSfromHall(hallRepository.findAll()); }
     }
 
