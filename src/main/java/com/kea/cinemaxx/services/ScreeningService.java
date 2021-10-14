@@ -3,6 +3,7 @@ package com.kea.cinemaxx.services;
 import com.kea.cinemaxx.dtos.ScreeningDTO;
 import com.kea.cinemaxx.entities.Cinema;
 import com.kea.cinemaxx.entities.Movie;
+import com.kea.cinemaxx.entities.Screening;
 import com.kea.cinemaxx.repositiories.ScreeningRepository;
 import org.springframework.stereotype.Service;
 
@@ -95,6 +96,31 @@ public class ScreeningService {
         // no params specified
         else { return ScreeningDTO.ScreeningDTOSfromScreening(screeningRepository.findAll()); }
 
+    }
+
+    public ScreeningDTO getScreening(int screeningId) {
+        Screening screening = screeningRepository.findById(screeningId).orElseThrow();
+        return new ScreeningDTO(screening);
+    }
+
+    public ScreeningDTO addScreening(ScreeningDTO newScreening) {
+        Screening screeningToMake = ScreeningDTO.screeningFromScreeningDTO(newScreening);
+        return new ScreeningDTO(screeningRepository.save(screeningToMake));
+    }
+
+    public ScreeningDTO editScreening(ScreeningDTO screeningToEdit, int screeningId) {
+        Screening screeningOrg = screeningRepository.findById(screeningId).orElseThrow();
+        screeningOrg.setCinema(screeningToEdit.getCinema());
+        screeningOrg.setHall(screeningToEdit.getHall());
+        screeningOrg.setTime(screeningToEdit.getTime());
+        screeningOrg.setDate(screeningToEdit.getDate());
+        screeningOrg.setMovie(screeningToEdit.getMovie());
+        return new ScreeningDTO(screeningRepository.save(screeningOrg));
+    }
+
+    public void deleteScreening(int screeningId) {
+        //Make 404 when car was not found
+        screeningRepository.deleteById(screeningId);
     }
 
 }
