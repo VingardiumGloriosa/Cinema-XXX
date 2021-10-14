@@ -3,13 +3,11 @@ package com.kea.cinemaxx.services;
 import com.kea.cinemaxx.dtos.ScreeningDTO;
 import com.kea.cinemaxx.entities.Cinema;
 import com.kea.cinemaxx.entities.Movie;
-import com.kea.cinemaxx.entities.Screening;
 import com.kea.cinemaxx.repositiories.ScreeningRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -37,13 +35,42 @@ public class ScreeningService {
 
         }
 
+        // start date + end date + movie
+        else if (date1!=null && date2!=null && cinemaName==null && movieName!=null) {
+            LocalDate d1 = LocalDate.parse(date1, formatter);
+            LocalDate d2 = LocalDate.parse(date2, formatter);
+            movie.setTitle(movieName);
+            return ScreeningDTO.ScreeningDTOSfromScreening(screeningRepository.findScreeningByDateBetweenAndMovie(d1,d2,movie));
+        }
+
+        // start date + end date + cinema
+        else if (date1!=null && date2!=null && cinemaName!=null) {
+            LocalDate d1 = LocalDate.parse(date1, formatter);
+            LocalDate d2 = LocalDate.parse(date2, formatter);
+            cinema.setName(cinemaName);
+            return ScreeningDTO.ScreeningDTOSfromScreening(screeningRepository.findScreeningByDateBetweenAndCinema(d1,d2,cinema));
+        }
+
         // only one date and cinema and movie
         else if (date1!=null && date2==null && cinemaName!=null && movieName!=null) {
             LocalDate d = LocalDate.parse(date1, formatter);
             cinema.setName(cinemaName);
             movie.setTitle(movieName);
             return ScreeningDTO.ScreeningDTOSfromScreening(screeningRepository.findScreeningByDateAndMovieAndCinema(d,movie,cinema));
+        }
 
+        // only one date and cinema
+        else if (date1!=null && date2==null && cinemaName!=null) {
+            LocalDate d = LocalDate.parse(date1, formatter);
+            cinema.setName(cinemaName);
+            return ScreeningDTO.ScreeningDTOSfromScreening(screeningRepository.findScreeningByDateAndCinema(d,cinema));
+        }
+
+        // only one date and movie
+        else if (date1!=null && date2==null && movieName!=null) {
+            LocalDate d = LocalDate.parse(date1, formatter);
+            movie.setTitle(movieName);
+            return ScreeningDTO.ScreeningDTOSfromScreening(screeningRepository.findScreeningByDateAndMovie(d,movie));
         }
 
         // only cinema and movie
