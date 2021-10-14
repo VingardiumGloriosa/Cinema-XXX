@@ -1,8 +1,6 @@
 package com.kea.cinemaxx.services;
 
-import com.kea.cinemaxx.dtos.CinemaDTO;
 import com.kea.cinemaxx.dtos.MovieDTO;
-import com.kea.cinemaxx.entities.Cinema;
 import com.kea.cinemaxx.entities.Movie;
 import com.kea.cinemaxx.repositiories.MovieRepository;
 import org.springframework.stereotype.Service;
@@ -40,7 +38,7 @@ public class MovieService {
     //    List<Movie> findMovieByGenre(String genre);
 
     public void deleteMovie(int id){
-        screeningService.deleteScreeningByMovie(getMovie(id).getTitle());
+        screeningService.deleteScreeningByMovieTitle(getMovie(id).getTitle());
         movieRepository.deleteById(id);
     }
 
