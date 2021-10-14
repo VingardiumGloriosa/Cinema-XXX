@@ -40,9 +40,9 @@ public class Cinema {
         this.name = name;
     }
 
-    public void addHall(Hall hall){
-        halls.add(hall);
-        hall.setHallId(this);
-    }
+//    public void addHall(Hall hall){
+//        halls.add(hall);
+//        hall.setHallId(this);
+//    }
 
 }

@@ -30,10 +30,9 @@ public class Hall {
 
     public Hall(){}
 
-    public Hall(int numberOfSeats, Cinema cinema, int hallId) {
+    public Hall(int numberOfSeats, Cinema cinema) {
         this.numberOfSeats = numberOfSeats;
         this.cinema = cinema;
-        this.hallId = hallId;
     }
 
 }

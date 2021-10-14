@@ -37,7 +37,7 @@ public class HallDTO {
     }
 
     public static Hall hallFromHallDTO(HallDTO hall){
-        return new Hall(hall.getNumberOfSeats(), hall.getCinema(), hall.getHallId());
+        return new Hall(hall.getNumberOfSeats(), hall.getCinema());
     }
 
 
