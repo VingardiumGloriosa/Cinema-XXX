@@ -27,9 +27,18 @@ public class DataSetup implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         System.out.println("---------------------->   ");
-        Cinema cinema1 = cinemaRepository.save(new Cinema(5, "Guldbergsgade 29F, Copenhagen", 2200, "Empire Sun"));
-        cinemaRepository.save(new Cinema(8,"Schlangade 30A, Copenhagen",2400,"Empire Moon"));
-        cinemaRepository.save(new Cinema(8,"Olgade 21F, Copenhagen",2400,"Empire Mars"));
+//        Cinema cinema1 = cinemaRepository.save(new Cinema(5, "Guldbergsgade 29F, Copenhagen", 2200, "Empire Sun"));
+//        Cinema cinema2 = cinemaRepository.save(new Cinema(8,"Schlangade 30A, Copenhagen",2400,"Empire Moon"));
+//        Cinema cinema3 = cinemaRepository.save(new Cinema(8,"Olgade 21F, Copenhagen",2400,"Empire Mars"));
+
+        Cinema cinema1 = new Cinema(5, "Guldbergsgade 29F, Copenhagen", 2200, "Empire Sun");
+        Cinema cinema2 = new Cinema(8,"Schlangade 30A, Copenhagen",2400,"Empire Moon");
+        Cinema cinema3 = new Cinema(8,"Schlangade 30A, Copenhagen",2400,"Empire Moon");
+        cinemaRepository.save(cinema1);
+        cinemaRepository.save(cinema2);
+        cinemaRepository.save(cinema3);
+
+
 
         Hall hall1 = new Hall(100, cinema1);
         Hall hall2 = new Hall(80, cinema1);

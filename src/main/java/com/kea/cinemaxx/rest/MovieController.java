@@ -1,8 +1,6 @@
 package com.kea.cinemaxx.rest;
 
 
-public class MovieController {
-
 import com.kea.cinemaxx.dtos.MovieDTO;
 import com.kea.cinemaxx.services.MovieService;
 import org.springframework.web.bind.annotation.*;
