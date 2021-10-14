@@ -49,10 +49,10 @@ public class DataSetup implements CommandLineRunner {
         movieRepository.save(movie2);
         movieRepository.save(movie3);
 
-        Screening screening01 = new Screening(LocalTime.of(8,0,0),LocalDate.of(2021,12,8), movie1, hall1);
-        Screening screening02 = new Screening(LocalTime.of(12,0,0),LocalDate.of(2021,12,9), movie1, hall1);
-        Screening screening03 = new Screening(LocalTime.of(8,0,0),LocalDate.of(2021,12,10), movie2, hall2);
-        Screening screening04 = new Screening(LocalTime.of(20,0,0),LocalDate.of(2021,12,8), movie3, hall3);
+        Screening screening01 = new Screening(LocalTime.of(8,0,0),LocalDate.of(2021,12,8), movie1, hall1, cinema1);
+        Screening screening02 = new Screening(LocalTime.of(12,0,0),LocalDate.of(2021,12,9), movie1, hall1, cinema1);
+        Screening screening03 = new Screening(LocalTime.of(8,0,0),LocalDate.of(2021,12,10), movie2, hall2, cinema1);
+        Screening screening04 = new Screening(LocalTime.of(20,0,0),LocalDate.of(2021,12,8), movie3, hall3, cinema1);
         screeningRepository.save(screening01);
         screeningRepository.save(screening02);
         screeningRepository.save(screening03);
