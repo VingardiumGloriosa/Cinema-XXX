@@ -44,6 +44,5 @@ public class Screening {
         this.movie = movie;
     }
 
-    public void getMovie(Movie movie){this.movie = movie;}
 
 }

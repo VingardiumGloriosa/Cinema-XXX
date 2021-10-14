@@ -1,6 +1,8 @@
 package com.kea.cinemaxx.dtos;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.kea.cinemaxx.entities.Hall;
+import com.kea.cinemaxx.entities.Movie;
 import com.kea.cinemaxx.entities.Screening;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,8 +22,8 @@ public class ScreeningDTO {
     int screeningId;
     LocalTime time;
     LocalDate date; //should set date format? @JsonFormat(pattern = "dd-MM-YYYY")
-    int movieId;
-    int hallId;
+    Movie movie;
+    Hall hall;
 
     public ScreeningDTO(LocalTime time,  LocalDate date, int movie, int hall){
         this.time = time;
@@ -42,7 +44,7 @@ public class ScreeningDTO {
     }
 
     public static Screening screeningFromScreeningDTO(ScreeningDTO screening){
-        return new Screening(screening.getTime(),screening.getDate(), screening.);
+        return new Screening(screening.getTime(),screening.getDate(), screening.getMovie(), screening.getHall());
     }
 
 }
