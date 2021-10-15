@@ -30,7 +30,6 @@ public class ScreeningController {
 
     @GetMapping("/{id}")
     ScreeningDTO getScreening(@PathVariable int id) {
-
         return screeningService.getScreening(id);
     }
 
@@ -39,15 +38,14 @@ public class ScreeningController {
         return screeningService.addScreening(newScreening);
     }
 
-    @PutMapping("/{id}")
-    ScreeningDTO editScreening(@RequestBody ScreeningDTO screeningToEdit,@PathVariable int screeningId ) throws Exception {
+    @PutMapping("/{screeningId}")
+    ScreeningDTO editScreening(@RequestBody ScreeningDTO screeningToEdit,@PathVariable int screeningId) throws Exception {
         return screeningService.editScreening(screeningToEdit,screeningId);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{screeningId}")
     void deleteScreening(@PathVariable int screeningId){
         screeningService.deleteScreening(screeningId);
-
     }
 
 }

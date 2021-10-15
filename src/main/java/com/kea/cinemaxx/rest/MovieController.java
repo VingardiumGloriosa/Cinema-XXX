@@ -23,6 +23,15 @@ public class MovieController {
     }
 
     @GetMapping
-    List<MovieDTO> getAllMovies(){return movieService.getMovies();}
-  
+    List<MovieDTO> getAllMovies(){ return movieService.getMovies();}
+
+    @PostMapping
+    MovieDTO addMovie(@RequestBody MovieDTO movieDTO){
+        return movieService.addMovie(movieDTO);
+    }
+
+    @PutMapping("/{id}")
+    MovieDTO editMovie(@RequestBody MovieDTO movieToEdit,@PathVariable int id ) throws Exception {
+        return movieService.editMovie(movieToEdit,id);
+    }
 }
