@@ -1,5 +1,6 @@
 package com.kea.cinemaxx.entities;
 
+import com.kea.cinemaxx.dtos.MovieDTO;
 import lombok.Getter;
 import lombok.Setter;
 
