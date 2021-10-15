@@ -1,5 +1,6 @@
 package com.kea.cinemaxx.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -37,6 +38,7 @@ public class Movie {
     int length; //in minutes?
 
     @OneToMany (mappedBy = "movie",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @JsonManagedReference
     List<Screening> screenings = new ArrayList<>();
 
     public Movie(){}

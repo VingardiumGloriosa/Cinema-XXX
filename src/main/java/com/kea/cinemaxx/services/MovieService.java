@@ -28,7 +28,7 @@ public class MovieService {
     }
 
     public List<MovieDTO> getMoviesByTitle(String title){
-        return MovieDTO.MovieDTOSfromMovie(movieRepository.findMovieByTitle(title));
+        return MovieDTO.MovieDTOSfromMovie(movieRepository.findMoviesByTitle(title));
     }
 
     // We don't need the following for now but we'll need it next week :D

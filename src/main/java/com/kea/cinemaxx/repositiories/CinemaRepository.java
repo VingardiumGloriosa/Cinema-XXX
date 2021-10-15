@@ -8,7 +8,8 @@ import java.util.List;
 public interface CinemaRepository extends CrudRepository<Cinema,Integer> {
 
     List<Cinema> findCinemaByZipCode(int zipCode);
-    List<Cinema> findCinemaByName(String name);
+    List<Cinema> findCinemasByName(String name);
+    Cinema findCinemaByName(String name);
     List<Cinema> findCinemaByZipCodeAndName(int zipCode, String name);
     List<Cinema> findAll();
 

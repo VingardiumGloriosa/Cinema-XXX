@@ -22,7 +22,7 @@ public class ScreeningController {
                                      @RequestParam (required = false) String cinemaName,
                                      @RequestParam (required = false) String movieName) {
 
-        // the url should be .../options?date1=10-12-2000&date2=10-02-2000&cinemaName=Barbara&movieName=Dune
+        // the url should be .../options?date1=10-12-2000&date2=10-02-2000&cinemaName=Empire%&movieName=Dune
 
         return screeningService.getScreenings(date1,date2,cinemaName,movieName);
 
