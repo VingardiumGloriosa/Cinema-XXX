@@ -1,5 +1,6 @@
 package com.kea.cinemaxx.configuration;
 
+import com.kea.cinemaxx.dtos.MovieDTO;
 import com.kea.cinemaxx.entities.Cinema;
 import com.kea.cinemaxx.entities.Hall;
 import com.kea.cinemaxx.entities.Movie;
@@ -8,6 +9,7 @@ import com.kea.cinemaxx.repositiories.CinemaRepository;
 import com.kea.cinemaxx.repositiories.HallRepository;
 import com.kea.cinemaxx.repositiories.MovieRepository;
 import com.kea.cinemaxx.repositiories.ScreeningRepository;
+import com.kea.cinemaxx.services.MovieService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
@@ -23,6 +25,7 @@ public class DataSetup implements CommandLineRunner{
     HallRepository hallRepository;
     ScreeningRepository screeningRepository;
     MovieRepository movieRepository;
+
 
     public DataSetup(CinemaRepository cinemaRepository, HallRepository hallRepository, ScreeningRepository screeningRepository,MovieRepository movieRepository){
         this.cinemaRepository = cinemaRepository;
@@ -75,7 +78,6 @@ public class DataSetup implements CommandLineRunner{
         screeningRepository.save(screening02);
         screeningRepository.save(screening03);
         screeningRepository.save(screening04);
-
 
     }
 }

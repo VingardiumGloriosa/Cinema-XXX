@@ -22,7 +22,7 @@ public class ScreeningController {
                                      @RequestParam (required = false) String cinemaName,
                                      @RequestParam (required = false) String movieName) {
 
-        // the url should be .../options?date1=10-12-2000&date2=10-02-2000&cinemaName=Barbara&movieName=Dune
+        // the url should be .../options?date1=10-12-2000&date2=10-02-2000&cinemaName=Empire%&movieName=Dune
 
         return screeningService.getScreenings(date1,date2,cinemaName,movieName);
 
@@ -30,7 +30,6 @@ public class ScreeningController {
 
     @GetMapping("/{id}")
     ScreeningDTO getScreening(@PathVariable int id) {
-
         return screeningService.getScreening(id);
     }
 
@@ -39,15 +38,14 @@ public class ScreeningController {
         return screeningService.addScreening(newScreening);
     }
 
-    @PutMapping("/{id}")
-    ScreeningDTO editScreening(@RequestBody ScreeningDTO screeningToEdit,@PathVariable int screeningId ) throws Exception {
+    @PutMapping("/{screeningId}")
+    ScreeningDTO editScreening(@RequestBody ScreeningDTO screeningToEdit,@PathVariable int screeningId) throws Exception {
         return screeningService.editScreening(screeningToEdit,screeningId);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{screeningId}")
     void deleteScreening(@PathVariable int screeningId){
         screeningService.deleteScreening(screeningId);
-
     }
 
 }

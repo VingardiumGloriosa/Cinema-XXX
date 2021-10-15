@@ -23,11 +23,21 @@ public class MovieController {
     }
 
     @GetMapping
-    List<MovieDTO> getAllMovies(){return movieService.getMovies();}
+    List<MovieDTO> getAllMovies(){ return movieService.getMovies();}
 
     @DeleteMapping("/delete/{id}")
     void deleteMovie(@PathVariable int id){movieService.deleteMovie(id);}
 
     //@DeleteMapping("/delete/{title}")
-    //void deleteMovieByTitle(@PathVariable String title){movieService.deleteMovieByTitle(title);}
+    //void deleteMovieByTitle(@PathVariable String title){movieService.deleteMovieByTitle(title);}    
+
+    @PostMapping
+    MovieDTO addMovie(@RequestBody MovieDTO movieDTO){
+        return movieService.addMovie(movieDTO);
+    }
+
+    @PutMapping("/{id}")
+    MovieDTO editMovie(@RequestBody MovieDTO movieToEdit,@PathVariable int id ) throws Exception {
+        return movieService.editMovie(movieToEdit,id);
+    }
 }

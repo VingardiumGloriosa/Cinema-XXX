@@ -23,24 +23,28 @@ public class ScreeningDTO {
     int screeningId;
     LocalTime time;
     LocalDate date; //should set date format? @JsonFormat(pattern = "dd-MM-YYYY")
+    String movieTitle;
+    int hallId;
+    String cinemaName;
+
     Movie movie;
     Hall hall;
     Cinema cinema;
 
-    public ScreeningDTO(LocalTime time,  LocalDate date, Movie movie, Hall hall, Cinema cinema){
+    public ScreeningDTO(LocalTime time,  LocalDate date  /*,  Movie movie, Hall hall, Cinema cinema */){
         this.time = time;
         this.date = date;
-        this.movie = movie;
-        this.hall = hall;
-        this.cinema = cinema;
+//        this.movie = movie;
+//        this.hall = hall;
+//        this.cinema = cinema;
     }
 
     public ScreeningDTO(Screening screening){
         this.time = screening.getTime();
         this.date = screening.getDate();
-        this.movie = screening.getMovie();
-        this.hall = screening.getHall();
-        this.cinema = screening.getCinema();
+        this.movieTitle = screening.getMovie().getTitle();
+        this.hallId = screening.getHall().getHallId();
+        this.cinemaName = screening.getCinema().getName();
         this.screeningId = screening.getScreeningId();
     }
 

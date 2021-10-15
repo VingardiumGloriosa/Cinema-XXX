@@ -28,7 +28,7 @@ public class CinemaService {
             return CinemaDTO.CinemaDTOSfromCinema(cinemaRepository.findCinemaByZipCode(zipCode));
         }
         else if(name!=null && zipCode==0) {
-            return CinemaDTO.CinemaDTOSfromCinema(cinemaRepository.findCinemaByName(name));
+            return CinemaDTO.CinemaDTOSfromCinema(cinemaRepository.findCinemasByName(name));
         }
         else return CinemaDTO.CinemaDTOSfromCinema(cinemaRepository.findAll());
     }
