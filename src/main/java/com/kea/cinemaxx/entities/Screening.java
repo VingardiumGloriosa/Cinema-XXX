@@ -23,18 +23,10 @@ public class Screening {
     @Column(length = 60,nullable = false)
     LocalDate date;
 
-//    @Column(length = 60,nullable = false) //is this needed or is this supposed to be from entity movie?
-//    int movieId;
-//    @Column(length = 60, nullable = false)
-//    int hallId;
-
     @ManyToOne
     @JoinColumn(name="hallId", nullable=false)
     @JsonBackReference
     Hall hall;
-
-    // JoinColumn might be causing us the problems we have with the screening.
-    // All the problems we're having are because the halls and cinemas keep being fetched on a loop.
 
     @ManyToOne
     @JoinColumn(name="movieId", nullable=false)
