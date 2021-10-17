@@ -1,5 +1,7 @@
 package com.kea.cinemaxx.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,9 +25,11 @@ public class Hall {
 
     @ManyToOne
     @JoinColumn(name="cinemaId", nullable=false)
+    @JsonBackReference
     Cinema cinema;
 
     @OneToMany (mappedBy = "hall",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @JsonManagedReference
     List<Screening> screenings = new ArrayList<>();
 
     public Hall(){}

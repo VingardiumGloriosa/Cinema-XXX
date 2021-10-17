@@ -1,5 +1,6 @@
 package com.kea.cinemaxx.services;
 
+import com.kea.cinemaxx.dtos.CinemaDTO;
 import com.kea.cinemaxx.dtos.ScreeningDTO;
 import com.kea.cinemaxx.entities.Cinema;
 import com.kea.cinemaxx.entities.Movie;
@@ -28,34 +29,27 @@ public class ScreeningService {
 
     public List<ScreeningDTO> getScreenings(String date1, String date2, String cinemaName, String movieName) {
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d-MM-yyyy"); // week number pattern: w // for the future
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd"); // week number pattern: w // for the future
 
-        Cinema cinema = new Cinema();
-        Movie movie = new Movie();
-
-        if (cinemaName!=null) {
-            for (Cinema c : cinemaRepository.findCinemaByName(cinemaName)) {
-                if (c.getName().equals(cinemaName)) { cinema = c; break; }
-            }
-        }
-
-        if (movieName!=null) {
-            for (Movie m : movieRepository.findMovieByTitle(movieName)) {
-                if (m.getTitle().equals(movieName)) { movie = m; break; }
-            }
-        }
+        Cinema cinema;
+        Movie movie;
 
         // if all the parameters are given
         if (date1!=null && date2!=null && cinemaName!=null && movieName!=null) {
             LocalDate d1 = LocalDate.parse(date1, formatter);
             LocalDate d2 = LocalDate.parse(date2, formatter);
+            cinema = cinemaRepository.findCinemaByName(cinemaName);
+            movie = movieRepository.findMovieByTitle(movieName);
+            System.out.println("all params");
             return ScreeningDTO.ScreeningDTOSfromScreening(screeningRepository.findScreeningByDateBetweenAndMovieAndCinema(d1,d2,movie,cinema));
         }
 
         // start date + end date + movie
-        else if (date1!=null && date2!=null && cinemaName==null && movieName!=null) {
+        else if (date1!=null && date2!=null && movieName!=null) {
             LocalDate d1 = LocalDate.parse(date1, formatter);
             LocalDate d2 = LocalDate.parse(date2, formatter);
+            movie = movieRepository.findMovieByTitle(movieName);
+            System.out.println("movie between dates");
             return ScreeningDTO.ScreeningDTOSfromScreening(screeningRepository.findScreeningByDateBetweenAndMovie(d1,d2,movie));
         }
 
@@ -63,44 +57,77 @@ public class ScreeningService {
         else if (date1!=null && date2!=null && cinemaName!=null) {
             LocalDate d1 = LocalDate.parse(date1, formatter);
             LocalDate d2 = LocalDate.parse(date2, formatter);
+            cinema = cinemaRepository.findCinemaByName(cinemaName);
+            System.out.println("cinema between dates");
             return ScreeningDTO.ScreeningDTOSfromScreening(screeningRepository.findScreeningByDateBetweenAndCinema(d1,d2,cinema));
         }
 
         // only one date and cinema and movie
-        else if (date1!=null && date2==null && cinemaName!=null && movieName!=null) {
+        else if (date1!=null && cinemaName!=null && movieName!=null) {
             LocalDate d = LocalDate.parse(date1, formatter);
+            cinema = cinemaRepository.findCinemaByName(cinemaName);
+            movie = movieRepository.findMovieByTitle(movieName);
             return ScreeningDTO.ScreeningDTOSfromScreening(screeningRepository.findScreeningByDateAndMovieAndCinema(d,movie,cinema));
         }
 
         // only one date and cinema
-        else if (date1!=null && date2==null && cinemaName!=null) {
+        else if (date1!=null && cinemaName!=null) {
             LocalDate d = LocalDate.parse(date1, formatter);
+            cinema = cinemaRepository.findCinemaByName(cinemaName);
+            System.out.println("cinema and date");
             return ScreeningDTO.ScreeningDTOSfromScreening(screeningRepository.findScreeningByDateAndCinema(d,cinema));
         }
 
         // only one date and movie
-        else if (date1!=null && date2==null && movieName!=null) {
+        else if (date1!=null && movieName!=null) {
             LocalDate d = LocalDate.parse(date1, formatter);
+            movie = movieRepository.findMovieByTitle(movieName);
+            System.out.println("movie and date");
             return ScreeningDTO.ScreeningDTOSfromScreening(screeningRepository.findScreeningByDateAndMovie(d,movie));
         }
 
+        // date range
+        else if (date1!=null && date2!=null) {
+            LocalDate d1 = LocalDate.parse(date1, formatter);
+            LocalDate d2 = LocalDate.parse(date2, formatter);
+            System.out.println("dates between");
+            return ScreeningDTO.ScreeningDTOSfromScreening(screeningRepository.findScreeningByDateBetween(d1,d2));
+        }
+
+        // one date
+        else if (date1!=null) {
+            LocalDate d1 = LocalDate.parse(date1, formatter);
+            System.out.println("one date");
+            return ScreeningDTO.ScreeningDTOSfromScreening(screeningRepository.findScreeningByDate(d1));
+        }
+
         // only cinema and movie
-        else if (date1==null && cinemaName!=null && movieName!=null) {
+        else if (cinemaName!=null && movieName!=null) {
+            cinema = cinemaRepository.findCinemaByName(cinemaName);
+            movie = movieRepository.findMovieByTitle(movieName);
+            System.out.println("cinema and movie");
             return ScreeningDTO.ScreeningDTOSfromScreening(screeningRepository.findScreeningByCinemaAndMovie(cinema,movie));
         }
 
         // only cinema
-        else if (movieName==null && cinemaName!=null) {
+        else if (cinemaName!=null) {
+            cinema = cinemaRepository.findCinemaByName(cinemaName);
+            System.out.println("cinema");
             return ScreeningDTO.ScreeningDTOSfromScreening(screeningRepository.findScreeningByCinema(cinema));
         }
 
         // only movie
         else if (movieName!=null) {
+            movie = movieRepository.findMovieByTitle(movieName);
+            System.out.println("movie");
             return ScreeningDTO.ScreeningDTOSfromScreening(screeningRepository.findScreeningByMovie(movie));
         }
 
         // no params specified
-        else { return ScreeningDTO.ScreeningDTOSfromScreening(screeningRepository.findAll()); }
+        else {
+            System.out.println("get all");
+            return ScreeningDTO.ScreeningDTOSfromScreening(screeningRepository.findAll());
+        }
 
     }
 
@@ -127,6 +154,12 @@ public class ScreeningService {
     public void deleteScreening(int screeningId) {
         //Make 404 when screening is not found
         screeningRepository.deleteById(screeningId);
+    }
+
+    public void deleteScreeningByMovieTitle(String movie){
+        for (ScreeningDTO screening : getScreenings(null,null,null,movie)){
+            screeningRepository.deleteById(screening.getScreeningId());
+        }
     }
 
 }
