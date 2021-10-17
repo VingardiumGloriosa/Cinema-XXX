@@ -24,17 +24,17 @@ public class Screening {
     LocalDate date;
 
     @ManyToOne
-    @JoinColumn(name="hallId", nullable=false)
+    @JoinColumn(name="hall_id", nullable=false)
     @JsonBackReference
     Hall hall;
 
     @ManyToOne
-    @JoinColumn(name="movieId", nullable=false)
+    @JoinColumn(name="movie_id", nullable=false)
     @JsonBackReference
     Movie movie;
 
     @ManyToOne
-    @JoinColumn(name="cinemaId", nullable = false)
+    @JoinColumn(name="cinema_id", nullable = false)
     @JsonBackReference
     Cinema cinema;
 

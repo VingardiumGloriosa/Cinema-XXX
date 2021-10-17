@@ -19,13 +19,12 @@ public class Ticket {
     @Column(length = 60,nullable = false)
     String reservationEmail;
 
-    //they need to be entities
-
+    //they need to be entities -->
     @Column
     int seatId;
-
     @Column
     int screeningId;
+    //
 
     public Ticket(){}
 
