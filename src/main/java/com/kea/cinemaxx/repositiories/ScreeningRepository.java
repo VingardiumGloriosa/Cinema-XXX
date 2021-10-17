@@ -25,6 +25,8 @@ public interface ScreeningRepository extends CrudRepository<Screening, Integer> 
     List<Screening> findScreeningByDateBetweenAndMovieAndCinema(LocalDate startDate, LocalDate endDate, Movie movie, Cinema cinema);
     List<Screening> findAll();
 
+    void deleteByMovie(Movie movie);
+
     //    List<Screening> findScreeningByWeek(int weekNumber);
     //    List<Screening> findScreeningByWeekAndCinema(int weekNumber, String cinemaName);
     //    List<Screening> findScreeningByWeekAndMovieAndCinema(int weekNumber, int movieId, int cinemaId);

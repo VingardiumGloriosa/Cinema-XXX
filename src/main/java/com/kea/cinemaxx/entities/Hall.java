@@ -24,7 +24,7 @@ public class Hall {
 //    int cinemaId;
 
     @ManyToOne
-    @JoinColumn(name="cinemaId", nullable=false)
+    @JoinColumn(name="cinema_id", nullable=false)
     @JsonBackReference
     Cinema cinema;
 

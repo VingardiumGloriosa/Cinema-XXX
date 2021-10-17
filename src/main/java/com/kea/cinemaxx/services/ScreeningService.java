@@ -156,10 +156,11 @@ public class ScreeningService {
         screeningRepository.deleteById(screeningId);
     }
 
-    public void deleteScreeningByMovieTitle(String movie){
-        for (ScreeningDTO screening : getScreenings(null,null,null,movie)){
-            screeningRepository.deleteById(screening.getScreeningId());
-        }
+    public void deleteScreeningByMovieTitle(String movieName){
+        Movie movie = movieRepository.findMovieByTitle(movieName);
+//        for (ScreeningDTO screening : getScreenings(null,null,null,movieName)){  //I think getScreenings() can't be used here
+            screeningRepository.deleteByMovie(movie);
+//        }
     }
 
 }
