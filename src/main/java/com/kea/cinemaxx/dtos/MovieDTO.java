@@ -15,7 +15,7 @@ import java.util.stream.StreamSupport;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class MovieDTO {
 
-    int movieId;
+    String movieId;
     String title;
     int rating;
     String actors;
