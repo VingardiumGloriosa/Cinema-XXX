@@ -34,6 +34,11 @@ public class MovieDTO {
         this.length = length;
     }
 
+    public MovieDTO(String movieId, String title) {
+        this.movieId = movieId;
+        this.title = title;
+    }
+
     public MovieDTO(Movie movie){
         this.title = movie.getTitle();
         this.rating = movie.getRating();
@@ -54,6 +59,10 @@ public class MovieDTO {
 
     public static Movie movieFromMovieDTO(MovieDTO movie){
         return new Movie(movie.getTitle(),movie.getRating(), movie.getActors(), movie.getYear(), movie.getGenre(), movie.getDescription(), movie.getLength());
+    }
+
+    public static Movie movieFromMovieDTO(String movieId, String title){
+        return new Movie(movieId,title);
     }
 
 }

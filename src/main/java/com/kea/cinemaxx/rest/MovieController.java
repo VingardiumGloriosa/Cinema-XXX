@@ -1,8 +1,5 @@
 package com.kea.cinemaxx.rest;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
+import com.google.gson.*;
 import com.kea.cinemaxx.dtos.MovieDTO;
 import com.kea.cinemaxx.services.MovieService;
 import com.mashape.unirest.http.HttpResponse;
@@ -46,6 +43,7 @@ public class MovieController {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             JsonParser jp = new JsonParser();
             JsonElement je = jp.parse(response.getBody().toString());
+            je.getAsJsonObject().addProperty("Trailer and images","https://www.imdb.com/title/"+movieId);
             return  gson.toJson(je);
         }
         return null;
@@ -61,6 +59,7 @@ public class MovieController {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         JsonParser jp = new JsonParser();
         JsonElement je = jp.parse(response.getBody());
+        je.getAsJsonObject().addProperty("Trailer and images","https://www.imdb.com/title/"+movieService.getMovieByTitle(title).getMovieId());
         return gson.toJson(je);
     }
 
@@ -76,6 +75,18 @@ public class MovieController {
     @PostMapping
     MovieDTO addMovie(@RequestBody MovieDTO movieDTO){
         return movieService.addMovie(movieDTO);
+    }
+
+    @PostMapping("addById/{movieId}")
+    MovieDTO addMovieById(@PathVariable String movieId) throws UnsupportedEncodingException, UnirestException {
+        String query = String.format("i=%s",
+                URLEncoder.encode(movieId, charset));
+        // Json response
+        HttpResponse<JsonNode> response = Unirest.get(host + "?" + query)
+                .header("x-rapidapi-host", x_rapidapi_host)
+                .header("x-rapidapi-key", x_rapidapi_key)
+                .asJson();
+        return movieService.addMovie(response.getBody().getObject().get("imdbID").toString(),response.getBody().getObject().get("Title").toString());
     }
 
     @PutMapping("/{id}")

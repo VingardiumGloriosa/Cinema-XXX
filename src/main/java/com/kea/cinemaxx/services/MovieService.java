@@ -49,8 +49,22 @@ public class MovieService {
         return false;
     }
 
+    public MovieDTO getMovieByTitle(String title){
+        List<MovieDTO> temp = getMovies();
+        for (int i = 0; i < temp.size(); i++) {
+            if(temp.get(i).getTitle().equals(title)){
+                return temp.get(i);}
+        }
+        return null;
+    }
+
     public MovieDTO addMovie(MovieDTO newMovie){
         Movie movieToMake = MovieDTO.movieFromMovieDTO(newMovie);
+        return new MovieDTO(movieRepository.save(movieToMake));
+    }
+
+    public MovieDTO addMovie(String movieId, String title){
+        Movie movieToMake = MovieDTO.movieFromMovieDTO(movieId,title);
         return new MovieDTO(movieRepository.save(movieToMake));
     }
 
