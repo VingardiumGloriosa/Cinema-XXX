@@ -1,5 +1,6 @@
 package com.kea.cinemaxx.rest;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.kea.cinemaxx.dtos.ScreeningDTO;
 import com.kea.cinemaxx.services.ScreeningService;
 import org.springframework.http.HttpStatus;
@@ -42,7 +43,6 @@ public class ScreeningController {
         return screeningService.addScreening(newScreening);
     }
 
-    // don't know if this is working - how can we test it?
     @PutMapping("/edit/{screeningId}")
     ScreeningDTO editScreening(@RequestBody ScreeningDTO screeningToEdit,@PathVariable int screeningId) throws Exception {
         return screeningService.editScreening(screeningToEdit,screeningId);
