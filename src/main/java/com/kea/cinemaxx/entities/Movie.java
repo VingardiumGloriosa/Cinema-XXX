@@ -49,7 +49,7 @@ public class Movie {
     @Column(length = 1000)
     String poster;
 
-    @Column(length = 15000)
+    @Column(length = 1000)
     String images;
 
 
