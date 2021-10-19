@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import com.kea.cinemaxx.dtos.MovieDTO;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,6 +15,7 @@ import java.util.List;
 
 @Entity
 @Getter @Setter
+@AllArgsConstructor
 public class Movie {
 
     @Id
@@ -24,13 +26,13 @@ public class Movie {
     String title;
 
     @Column(length = 60)
-    int rating; //this is AGE RESTRICTION for now = min age required
+    String rating; //this is AGE RESTRICTION for now = min age required
 
     @Column(length = 60)
     String actors;
 
     @Column(length = 60)
-    int year;
+    String year;
 
     @Column(length = 60)
     String genre;
@@ -39,7 +41,16 @@ public class Movie {
     String description;
 
     @Column(length = 60)
-    int length; //in minutes?
+    String length; //in minutes?
+
+    @Column(length = 1000)
+    String trailer;
+
+    @Column(length = 1000)
+    String poster;
+
+    @Column(length = 15000)
+    String images;
 
     @OneToMany (mappedBy = "movie",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     @JsonManagedReference
@@ -56,7 +67,17 @@ public class Movie {
         this.title=title;
     }
 
-    public  Movie(String title, int rating, String actors, Integer year, String genre, String description, Integer length){
+    public  Movie(String title, String rating, String actors, String year, String genre, String description, String length){
+        this.title = title;
+        this.rating = rating;
+        this.actors = actors;
+        this.year = year;
+        this.genre = genre;
+        this.description = description;
+        this.length = length;
+    }
+    public  Movie(String movieId,String title, String rating, String actors, String year, String genre, String description, String length){
+        this.movieId=movieId;
         this.title = title;
         this.rating = rating;
         this.actors = actors;
@@ -66,4 +87,18 @@ public class Movie {
         this.length = length;
     }
 
+
+    public Movie(String movieId, String title, String rating, String actors, String year, String genre, String description, String length, String trailer, String poster, String images) {
+        this.movieId=movieId;
+        this.title = title;
+        this.rating = rating;
+        this.actors = actors;
+        this.year = year;
+        this.genre = genre;
+        this.description = description;
+        this.length = length;
+        this.trailer=trailer;
+        this.poster=poster;
+        this.images=images;
+    }
 }

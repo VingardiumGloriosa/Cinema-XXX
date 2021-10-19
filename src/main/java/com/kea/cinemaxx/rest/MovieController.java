@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -59,7 +60,6 @@ public class MovieController {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         JsonParser jp = new JsonParser();
         JsonElement je = jp.parse(response.getBody());
-        je.getAsJsonObject().addProperty("Trailer and images","https://www.imdb.com/title/"+movieService.getMovieByTitle(title).getMovieId());
         return gson.toJson(je);
     }
 
@@ -68,15 +68,15 @@ public class MovieController {
 /*
     @DeleteMapping("/delete/{id}")
     void deleteMovie(@PathVariable int id){movieService.deleteMovie(id);}
-*/
-    //@DeleteMapping("/delete/{title}")
-    //void deleteMovieByTitle(@PathVariable String title){movieService.deleteMovieByTitle(title);}    
+
+    @DeleteMapping("/delete/{title}")
+    void deleteMovieByTitle(@PathVariable String title){movieService.deleteMovieByTitle(title);}
 
     @PostMapping
     MovieDTO addMovie(@RequestBody MovieDTO movieDTO){
         return movieService.addMovie(movieDTO);
     }
-
+*/
     @PostMapping("addById/{movieId}")
     MovieDTO addMovieById(@PathVariable String movieId) throws UnsupportedEncodingException, UnirestException {
         String query = String.format("i=%s",
@@ -86,7 +86,26 @@ public class MovieController {
                 .header("x-rapidapi-host", x_rapidapi_host)
                 .header("x-rapidapi-key", x_rapidapi_key)
                 .asJson();
-        return movieService.addMovie(response.getBody().getObject().get("imdbID").toString(),response.getBody().getObject().get("Title").toString());
+        HttpResponse<JsonNode> response2 = Unirest.get("https://imdb-api.com/API/Images/k_b5xul4h1/"+movieId)
+                .asJson();
+        HttpResponse<JsonNode> response3 = Unirest.get("https://imdb-api.com/API/Trailer/k_b5xul4h1/"+movieId)
+                .asJson();
+        System.out.println(response2.getBody().getObject().get("items").toString());
+        MovieDTO temporary = new MovieDTO(
+                response.getBody().getObject().get("imdbID").toString(),
+                response.getBody().getObject().get("Title").toString(),
+                response.getBody().getObject().get("Rated").toString(),
+                response.getBody().getObject().get("Actors").toString(),
+                response.getBody().getObject().get("Year").toString(),
+                response.getBody().getObject().get("Genre").toString(),
+                response.getBody().getObject().get("Plot").toString(),
+                response.getBody().getObject().get("Runtime").toString(),
+                response3.getBody().getObject().get("link").toString(),
+                response.getBody().getObject().get("Poster").toString(),
+                response2.getBody().getObject().get("items").toString()
+        );
+        movieService.addMovie(temporary);
+        return temporary;
     }
 
     @PutMapping("/{id}")
