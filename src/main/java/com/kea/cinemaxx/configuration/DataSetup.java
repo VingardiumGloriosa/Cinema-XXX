@@ -35,16 +35,6 @@ public class DataSetup implements CommandLineRunner{
         this.movieRepository = movieRepository;
     }
 
-    /* Connection getConnection(){
-        try {
-            return DriverManager.getConnection(url, username,password);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }*/
-
-
 
     @Override
     public void run(String... args) throws Exception {
