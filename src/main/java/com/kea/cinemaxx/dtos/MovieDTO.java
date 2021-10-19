@@ -27,21 +27,6 @@ public class MovieDTO {
     String poster;
     String images;
 
-    public MovieDTO(String title, String rating, String actors, String year, String genre, String description, String length){
-        this.title = title;
-        this.rating = rating;
-        this.actors = actors;
-        this.year = year;
-        this.genre = genre;
-        this.description = description;
-        this.length = length;
-    }
-
-    public MovieDTO(String movieId, String title) {
-        this.movieId = movieId;
-        this.title = title;
-    }
-
     public MovieDTO(Movie movie){
         this.title = movie.getTitle();
         this.rating = movie.getRating();
@@ -51,6 +36,9 @@ public class MovieDTO {
         this.description = movie.getDescription();
         this.length = movie.getLength();
         this.movieId = movie.getMovieId();
+        this.poster=movie.getPoster();
+        this.trailer=movie.getTrailer();
+        this.images=movie.getImages();
     }
 
 

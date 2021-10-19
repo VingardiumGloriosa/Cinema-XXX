@@ -28,26 +28,8 @@ public class MovieController {
     public MovieController(MovieService movieService){this.movieService = movieService;}
 
     @GetMapping("/id/{movieId}")
-    String getMovie(@PathVariable String movieId) throws UnsupportedEncodingException, UnirestException {
-        if(movieService.getMovie(movieId)){
-            // Params
-            // Host, charset and headers vars should be the same
-            // Format query for preventing encoding problems
-            String query = String.format("i=%s",
-                    URLEncoder.encode(movieId, charset));
-            // Json response
-            HttpResponse<JsonNode> response = Unirest.get(host + "?" + query)
-                    .header("x-rapidapi-host", x_rapidapi_host)
-                    .header("x-rapidapi-key", x_rapidapi_key)
-                    .asJson();
-            //Prettifying
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            JsonParser jp = new JsonParser();
-            JsonElement je = jp.parse(response.getBody().toString());
-            je.getAsJsonObject().addProperty("Trailer and images","https://www.imdb.com/title/"+movieId);
-            return  gson.toJson(je);
-        }
-        return null;
+    MovieDTO getMovie(@PathVariable String movieId) {
+        return movieService.getMovie(movieId);
     }
 
     @GetMapping("/title/{title}")
@@ -90,7 +72,6 @@ public class MovieController {
                 .asJson();
         HttpResponse<JsonNode> response3 = Unirest.get("https://imdb-api.com/API/Trailer/k_b5xul4h1/"+movieId)
                 .asJson();
-        System.out.println(response2.getBody().getObject().get("items").toString());
         MovieDTO temporary = new MovieDTO(
                 response.getBody().getObject().get("imdbID").toString(),
                 response.getBody().getObject().get("Title").toString(),

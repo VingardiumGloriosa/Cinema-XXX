@@ -31,13 +31,13 @@ public class MovieService {
         return MovieDTO.MovieDTOSfromMovie(movieRepository.findAll());
     }
 
-    public boolean getMovie(String movieId){
+    public MovieDTO getMovie(String movieId){
         List<MovieDTO> temp = getMovies();
         for (int i = 0; i < temp.size(); i++) {
             if(temp.get(i).getMovieId().equals(movieId)){
-               return true;}
+               return temp.get(i);}
         }
-         return false;
+         return null;
     }
 
     public boolean getMoviesByTitle(String title){
