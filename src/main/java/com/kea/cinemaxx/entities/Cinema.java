@@ -24,7 +24,7 @@ public class Cinema {
     String address;
 
     @Column(length = 4, nullable = false)
-    int zipCode;                            // I set the default zipCode to 0!!!!!!!!
+    int zipCode;
 
     @Column(length = 20,nullable = false)
     String name;
@@ -41,10 +41,5 @@ public class Cinema {
         this.zipCode = zipCode;
         this.name = name;
     }
-
-//    public void addHall(Hall hall){
-//        halls.add(hall);
-//        hall.setHallId(this);
-//    }
 
 }

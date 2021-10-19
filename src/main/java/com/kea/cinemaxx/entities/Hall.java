@@ -25,7 +25,7 @@ public class Hall {
 
     @ManyToOne
     @JoinColumn(name="cinema_id", nullable=false)
-    @JsonBackReference
+    @JsonBackReference // add values with the same names to make it reference the right things
     Cinema cinema;
 
     @OneToMany (mappedBy = "hall",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
