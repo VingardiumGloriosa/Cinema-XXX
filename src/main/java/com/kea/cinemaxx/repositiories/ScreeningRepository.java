@@ -5,10 +5,12 @@ import com.kea.cinemaxx.entities.Hall;
 import com.kea.cinemaxx.entities.Movie;
 import com.kea.cinemaxx.entities.Screening;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.util.List;
 
+@Repository
 public interface ScreeningRepository extends CrudRepository<Screening, Integer> {
 
     List<Screening> findScreeningByDate(LocalDate date);
@@ -24,6 +26,8 @@ public interface ScreeningRepository extends CrudRepository<Screening, Integer> 
     List<Screening> findScreeningByDateAndMovieAndCinema(LocalDate date, Movie movie, Cinema cinema);
     List<Screening> findScreeningByDateBetweenAndMovieAndCinema(LocalDate startDate, LocalDate endDate, Movie movie, Cinema cinema);
     List<Screening> findAll();
+
+    void deleteByMovie(Movie movie);
 
     //    List<Screening> findScreeningByWeek(int weekNumber);
     //    List<Screening> findScreeningByWeekAndCinema(int weekNumber, String cinemaName);

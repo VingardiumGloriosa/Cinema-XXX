@@ -22,6 +22,7 @@ public class DataSetup implements CommandLineRunner{
     HallRepository hallRepository;
     ScreeningRepository screeningRepository;
     MovieRepository movieRepository;
+    DBSetup dbSetup = new DBSetup();
 
 
     public DataSetup(CinemaRepository cinemaRepository, HallRepository hallRepository, ScreeningRepository screeningRepository,MovieRepository movieRepository){
@@ -30,7 +31,6 @@ public class DataSetup implements CommandLineRunner{
         this.screeningRepository = screeningRepository;
         this.movieRepository = movieRepository;
     }
-
 
 
     @Override

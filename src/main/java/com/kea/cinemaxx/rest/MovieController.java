@@ -45,14 +45,27 @@ public class MovieController {
         return gson.toJson(je);
     }
 
+    //get movies by rating
+
+    //get movies by genre
+
+    //get movies by actors
+
     @GetMapping
     List<MovieDTO> getAllMovies(){ return movieService.getMovies();}
+
 /*
+
+
+    //foreign key constraint with screening table
+
     @DeleteMapping("/delete/{id}")
-    void deleteMovie(@PathVariable int id){movieService.deleteMovie(id);}
+    void deleteMovie(@PathVariable int id){ movieService.deleteMovie(id);}
 
     @DeleteMapping("/delete/{title}")
     void deleteMovieByTitle(@PathVariable String title){movieService.deleteMovieByTitle(title);}
+
+    //TODO: figure out how to test methods that have @RequestBody DTO
 
     @PostMapping
     MovieDTO addMovie(@RequestBody MovieDTO movieDTO){
@@ -89,8 +102,8 @@ public class MovieController {
         return temporary;
     }
 
-    @PutMapping("/{id}")
-    MovieDTO editMovie(@RequestBody MovieDTO movieToEdit,@PathVariable int id ) throws Exception {
+    @PutMapping("/edit/{id}")
+    MovieDTO editMovie(@RequestBody MovieDTO movieToEdit, @PathVariable int id ) throws Exception {
         return movieService.editMovie(movieToEdit,id);
     }
 }
