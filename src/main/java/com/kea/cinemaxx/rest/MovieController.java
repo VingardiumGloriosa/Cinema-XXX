@@ -96,7 +96,7 @@ public class MovieController {
                 response.getBody().getObject().get("Runtime").toString(),
                 response3.getBody().getObject().get("link").toString(),
                 response.getBody().getObject().get("Poster").toString(),
-                response2.getBody().getObject().get("items").toString()
+                "kill me"//response2.getBody().getObject().get("items").toString()
         );
         movieService.addMovie(temporary);
         return temporary;
