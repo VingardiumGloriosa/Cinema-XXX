@@ -55,7 +55,7 @@ public class MovieService {
     //    List<Movie> findMovieByGenre(String genre);
 
     public void deleteMovie(int id){
-        screeningService.deleteScreeningByMovieTitle(getMovie(id).getTitle());
+//        screeningService.deleteScreeningByMovieTitle(getMovie(id).getTitle());
         movieRepository.deleteById(id);
     }
 
