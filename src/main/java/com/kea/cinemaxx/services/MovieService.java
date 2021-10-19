@@ -1,10 +1,20 @@
 package com.kea.cinemaxx.services;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 import com.kea.cinemaxx.dtos.MovieDTO;
 import com.kea.cinemaxx.entities.Movie;
 import com.kea.cinemaxx.repositiories.MovieRepository;
+import com.mashape.unirest.http.Unirest;
+import com.mashape.unirest.http.exceptions.UnirestException;
 import org.springframework.stereotype.Service;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.net.http.HttpResponse;
 import java.util.List;
 
 @Service
@@ -21,17 +31,40 @@ public class MovieService {
         return MovieDTO.MovieDTOSfromMovie(movieRepository.findAll());
     }
 
-    public MovieDTO getMovie(int movieId) {
-        Movie movie = movieRepository.findById(movieId).orElseThrow();
-        return new MovieDTO(movie);
+    public MovieDTO getMovie(String movieId){
+        List<MovieDTO> temp = getMovies();
+        for (int i = 0; i < temp.size(); i++) {
+            if(temp.get(i).getMovieId().equals(movieId)){
+               return temp.get(i);}
+        }
+         return null;
     }
 
-    public List<MovieDTO> getMoviesByTitle(String title){
-        return MovieDTO.MovieDTOSfromMovie(movieRepository.findMoviesByTitle(title));
+    public boolean getMoviesByTitle(String title){
+        List<MovieDTO> temp = getMovies();
+        for (int i = 0; i < temp.size(); i++) {
+            if(temp.get(i).getTitle().equals(title)){
+                return true;}
+        }
+        return false;
+    }
+
+    public MovieDTO getMovieByTitle(String title){
+        List<MovieDTO> temp = getMovies();
+        for (int i = 0; i < temp.size(); i++) {
+            if(temp.get(i).getTitle().equals(title)){
+                return temp.get(i);}
+        }
+        return null;
     }
 
     public MovieDTO addMovie(MovieDTO newMovie){
         Movie movieToMake = MovieDTO.movieFromMovieDTO(newMovie);
+        return new MovieDTO(movieRepository.save(movieToMake));
+    }
+
+    public MovieDTO addMovie(String movieId, String title){
+        Movie movieToMake = MovieDTO.movieFromMovieDTO(movieId,title);
         return new MovieDTO(movieRepository.save(movieToMake));
     }
 
@@ -53,10 +86,11 @@ public class MovieService {
     //    List<Movie> findMovieByActors(String actors);
     //    List<Movie> findMovieByTitle(String title);
     //    List<Movie> findMovieByGenre(String genre);
-
-    public void deleteMovie(int id){
-//        screeningService.deleteScreeningByMovieTitle(getMovie(id).getTitle());
+  
+/*
+    public void deleteMovie(String id){
+        screeningService.deleteScreeningByMovieTitle(getMovie(id).getTitle());
         movieRepository.deleteById(id);
-    }
+    }*/
 
 }
