@@ -1,10 +1,7 @@
 package com.kea.cinemaxx.configuration;
 
 import com.kea.cinemaxx.dtos.MovieDTO;
-import com.kea.cinemaxx.entities.Cinema;
-import com.kea.cinemaxx.entities.Hall;
-import com.kea.cinemaxx.entities.Movie;
-import com.kea.cinemaxx.entities.Screening;
+import com.kea.cinemaxx.entities.*;
 import com.kea.cinemaxx.repositiories.CinemaRepository;
 import com.kea.cinemaxx.repositiories.HallRepository;
 import com.kea.cinemaxx.repositiories.MovieRepository;
@@ -25,6 +22,7 @@ public class DataSetup implements CommandLineRunner{
     HallRepository hallRepository;
     ScreeningRepository screeningRepository;
     MovieRepository movieRepository;
+    DBSetup dbSetup = new DBSetup();
 
 
     public DataSetup(CinemaRepository cinemaRepository, HallRepository hallRepository, ScreeningRepository screeningRepository,MovieRepository movieRepository){
@@ -33,7 +31,6 @@ public class DataSetup implements CommandLineRunner{
         this.screeningRepository = screeningRepository;
         this.movieRepository = movieRepository;
     }
-
 
 
     @Override
@@ -62,18 +59,21 @@ public class DataSetup implements CommandLineRunner{
         hallRepository.save(hall3);
         hallRepository.save(hall4);
         hallRepository.save(hall5);
-
+/*
         Movie movie1 = new Movie("Dune", 13, "Timothee Chalamet, Rebecca Fergyson, Zendja", 2021, "Sci-fi", "A guy is born into a royal family and tries to survive the first part", 155);
         Movie movie2 = new Movie("No Time To Die", 13, "Daniel Craig, Ana de Armas", 2021, "Action", "James Bond has left the active service and enjoys his retirement", 163);
         Movie movie3 = new Movie("Shang-Chi", 13, "Simu Liu, Awkwafina, Tony Chiu-Wai Leung", 2021, "Fantasy", "Shang-Chi, the master of weaponry-based Kung Fu, is forced to confront his past", 132);
         movieRepository.save(movie1);
         movieRepository.save(movie2);
         movieRepository.save(movie3);
+*/
+        Movie m1 = new Movie("tt0120338","Titanic");
+        movieRepository.save(m1);
 
-        Screening screening01 = new Screening(LocalTime.of(8,0,0),LocalDate.of(2021,12,8), movie1, hall1, cinema1);
-        Screening screening02 = new Screening(LocalTime.of(12,0,0),LocalDate.of(2021,12,9), movie1, hall1, cinema1);
-        Screening screening03 = new Screening(LocalTime.of(8,0,0),LocalDate.of(2021,12,10), movie2, hall2, cinema1);
-        Screening screening04 = new Screening(LocalTime.of(20,0,0),LocalDate.of(2021,12,8), movie3, hall3, cinema1);
+        Screening screening01 = new Screening(LocalTime.of(8,0,0),LocalDate.of(2021,12,8), m1, hall1, cinema1);
+        Screening screening02 = new Screening(LocalTime.of(12,0,0),LocalDate.of(2021,12,9), m1, hall1, cinema1);
+        Screening screening03 = new Screening(LocalTime.of(8,0,0),LocalDate.of(2021,12,10), m1, hall2, cinema1);
+        Screening screening04 = new Screening(LocalTime.of(20,0,0),LocalDate.of(2021,12,8), m1, hall3, cinema1);
         screeningRepository.save(screening01);
         screeningRepository.save(screening02);
         screeningRepository.save(screening03);
