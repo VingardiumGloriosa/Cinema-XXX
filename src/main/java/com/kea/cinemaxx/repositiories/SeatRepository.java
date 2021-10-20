@@ -9,6 +9,7 @@ import java.util.List;
 @Repository
 public interface SeatRepository extends CrudRepository<Seat, Integer> {
 
+    List<Seat> findAll();
 //    //Again, they probably need to be entities but I'm not sure what the best practice is
 //    List<Seat> findSeatByHall(int hallId);
 //    List<Seat> findSeatByHallandReserved(int hallId, boolean reserved);

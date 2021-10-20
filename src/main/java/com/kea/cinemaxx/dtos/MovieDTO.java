@@ -15,24 +15,17 @@ import java.util.stream.StreamSupport;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class MovieDTO {
 
-    int movieId;
+    String movieId;
     String title;
-    int rating;
+    String rating;
     String actors;
-    Integer year;
+    String year;
     String genre;
     String description;
-    Integer length;
-
-    public MovieDTO(String title, int rating, String actors, int year, String genre, String description, int length){
-        this.title = title;
-        this.rating = rating;
-        this.actors = actors;
-        this.year = year;
-        this.genre = genre;
-        this.description = description;
-        this.length = length;
-    }
+    String length;
+    String trailer;
+    String poster;
+    String images;
 
     public MovieDTO(Movie movie){
         this.title = movie.getTitle();
@@ -43,7 +36,11 @@ public class MovieDTO {
         this.description = movie.getDescription();
         this.length = movie.getLength();
         this.movieId = movie.getMovieId();
+        this.poster=movie.getPoster();
+        this.trailer=movie.getTrailer();
+        this.images=movie.getImages();
     }
+
 
     public static List<MovieDTO> MovieDTOSfromMovie(Iterable<Movie> movies){
         List<MovieDTO> dtos = StreamSupport.stream(movies.spliterator(), false)
@@ -53,7 +50,22 @@ public class MovieDTO {
     }
 
     public static Movie movieFromMovieDTO(MovieDTO movie){
-        return new Movie(movie.getTitle(),movie.getRating(), movie.getActors(), movie.getYear(), movie.getGenre(), movie.getDescription(), movie.getLength());
+        return new Movie(
+                movie.getMovieId(),
+                movie.getTitle(),
+                movie.getRating(),
+                movie.getActors(),
+                movie.getYear(),
+                movie.getGenre(),
+                movie.getDescription(),
+                movie.getLength(),
+                movie.getTrailer(),
+                movie.getPoster(),
+                movie.getImages());
+    }
+
+    public static Movie movieFromMovieDTO(String movieId, String title){
+        return new Movie(movieId,title);
     }
 
 }

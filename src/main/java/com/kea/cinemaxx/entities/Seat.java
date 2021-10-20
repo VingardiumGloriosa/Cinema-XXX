@@ -1,9 +1,12 @@
 package com.kea.cinemaxx.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter @Setter
@@ -14,20 +17,27 @@ public class Seat {
     int seatId;
 
     @Column
-    int row;
+    int seatRow;
 
     @Column
-    char column;
+    char seatColumn;
 
-    @Column
-    boolean reserved = false;
+    //orphanRemoval will delete any tickets for this seat when the seat is deleted
+    @OneToMany (orphanRemoval = true, mappedBy = "seat", cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @JsonManagedReference ("ticketForSeat")
+    List<Ticket> tickets;
+
+    @ManyToOne
+    @JoinColumn(name = "hall_id", nullable = false)
+    @JsonBackReference
+    Hall hall;
 
     public Seat(){}
 
-    public  Seat(int row, char column, boolean reserved){
-        this.row = row;
-        this.column = column;
-        this.reserved = reserved;
+    public  Seat(int seatRow, char seatColumn, Hall hall){
+        this.seatRow = seatRow;
+        this.seatColumn = seatColumn;
+        this.hall = hall;
     }
 
 }

@@ -36,15 +36,14 @@ public class ScreeningController {
         return screeningService.getScreening(id);
     }
 
-    //TODO: figure out how to test methods that have @RequestBody DTO
-
     @PostMapping
     ScreeningDTO addScreening(@RequestBody ScreeningDTO newScreening) {
         return screeningService.addScreening(newScreening);
+        //add a bunch of tickets
     }
 
     @PutMapping("/edit/{screeningId}")
-    ScreeningDTO editScreening(@RequestBody ScreeningDTO screeningToEdit,@PathVariable int screeningId) throws Exception {
+    ScreeningDTO editScreening(@RequestBody ScreeningDTO screeningToEdit, @PathVariable int screeningId) throws Exception {
         return screeningService.editScreening(screeningToEdit,screeningId);
     }
 

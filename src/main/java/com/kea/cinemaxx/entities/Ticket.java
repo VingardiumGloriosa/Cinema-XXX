@@ -1,7 +1,12 @@
 package com.kea.cinemaxx.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
+import com.kea.cinemaxx.entities.Seat;
+import com.kea.cinemaxx.entities.Screening;
+
 
 import javax.persistence.*;
 
@@ -13,26 +18,36 @@ public class Ticket {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int ticketId;
 
-    @Column(length = 60,nullable = false)
-    String reservationName;
+    boolean purchased;
 
-    @Column(length = 60,nullable = false)
-    String reservationEmail;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    @JsonBackReference ("ticketsForUser")
+    User user;  // the user CAN be null since some tickets will not be purchased yet
 
-    //they need to be entities -->
-    @Column
-    int seatId;
-    @Column
-    int screeningId;
-    //
+    @ManyToOne
+    @JoinColumn(name = "seat_id", nullable = false)
+    @JsonManagedReference ("ticketForSeat")
+    Seat seat;
+
+    @ManyToOne
+    @JoinColumn(name = "screening_id", nullable = false)
+    @JsonBackReference ("ticketsForScreening")
+    Screening screening;
 
     public Ticket(){}
 
-    public Ticket(String reservationName, String reservationEmail, int seatId, int screeningId) {
-        this.reservationName = reservationName;
-        this.reservationEmail = reservationEmail;
-        this.seatId = seatId;
-        this.screeningId = screeningId;
+    public Ticket(boolean purchased, User user, Seat seat, Screening screening) {
+        this.purchased = purchased;
+        this.user = user;
+        this.seat = seat;
+        this.screening = screening;
+    }
+
+    public void resetTicket(Seat seatToKeep) {
+        this.purchased = false;
+        this.user = null;
+        this.seat = seatToKeep;
     }
 
 }
