@@ -25,6 +25,15 @@ public class TicketService {
     }
 
     // create booking (Sam)
+    public TicketDTO addTicket(TicketDTO newTicket){
+        Ticket ticketToMake = TicketDTO.ticketFromTicketDTO(newTicket);
+        return new TicketDTO(ticketRepository.save(ticketToMake));
+    }
+
+    public boolean isTicketFree(int screeningId, int seatId){
+        Ticket t = ticketRepository.findTicketByScreening_ScreeningIdAndSeat_SeatId(screeningId, seatId);
+        return t==null ? true : false;
+    }
 
     // edit booking (Chia)
     // if ticket exists and this.user_id == booking.user_id
@@ -46,6 +55,7 @@ public class TicketService {
     public void deleteTicket(int ticketId) {
         ticketRepository.deleteById(ticketId);
     }
+
 
 
 

@@ -2,10 +2,7 @@ package com.kea.cinemaxx.configuration;
 
 import com.kea.cinemaxx.dtos.MovieDTO;
 import com.kea.cinemaxx.entities.*;
-import com.kea.cinemaxx.repositiories.CinemaRepository;
-import com.kea.cinemaxx.repositiories.HallRepository;
-import com.kea.cinemaxx.repositiories.MovieRepository;
-import com.kea.cinemaxx.repositiories.ScreeningRepository;
+import com.kea.cinemaxx.repositiories.*;
 import com.kea.cinemaxx.services.MovieService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Profile;
@@ -22,14 +19,21 @@ public class DataSetup implements CommandLineRunner{
     HallRepository hallRepository;
     ScreeningRepository screeningRepository;
     MovieRepository movieRepository;
+    TicketRepository ticketRepository;
+    SeatRepository seatRepository;
+    UserRepository userRepository;
     DBSetup dbSetup = new DBSetup();
 
 
-    public DataSetup(CinemaRepository cinemaRepository, HallRepository hallRepository, ScreeningRepository screeningRepository,MovieRepository movieRepository){
+    public DataSetup(CinemaRepository cinemaRepository, HallRepository hallRepository, ScreeningRepository screeningRepository, MovieRepository movieRepository, TicketRepository ticketRepository, SeatRepository seatRepository,  UserRepository userRepository){
         this.cinemaRepository = cinemaRepository;
         this.hallRepository = hallRepository;
         this.screeningRepository = screeningRepository;
         this.movieRepository = movieRepository;
+        this.ticketRepository = ticketRepository;
+        this.seatRepository = seatRepository;
+        this.userRepository = userRepository;
+
     }
 
 
@@ -78,6 +82,15 @@ public class DataSetup implements CommandLineRunner{
         screeningRepository.save(screening02);
         screeningRepository.save(screening03);
         screeningRepository.save(screening04);
+
+        Seat seat1 = new Seat(1,'A',false,hall1);
+        seatRepository.save(seat1);
+
+        User user1 = new User(true);
+        userRepository.save(user1);
+
+        Ticket ticket1 = new Ticket(true, user1, seat1, screening01);
+        ticketRepository.save(ticket1);
 
     }
 }
