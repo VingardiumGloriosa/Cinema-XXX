@@ -71,7 +71,7 @@ public class DataSetup implements CommandLineRunner{
         movieRepository.save(movie2);
         movieRepository.save(movie3);
 */
-        Movie m1 = new Movie("tt0120338","Titanic");
+        Movie m1 = new Movie("tt0120338","Titanic","a","b","b","c","d","f","f","r","r");
         movieRepository.save(m1);
 
         Screening screening01 = new Screening(LocalTime.of(8,0,0),LocalDate.of(2021,12,8), m1, hall1, cinema1);

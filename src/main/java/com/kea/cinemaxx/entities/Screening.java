@@ -1,12 +1,15 @@
 package com.kea.cinemaxx.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter @Setter
@@ -25,18 +28,24 @@ public class Screening {
 
     @ManyToOne
     @JoinColumn(name="hall_id", nullable=false)
-    @JsonBackReference
+    @JsonBackReference("screeningToHall")
     Hall hall;
 
     @ManyToOne
     @JoinColumn(name="movie_id", nullable=false)
-    @JsonBackReference
+    @JsonBackReference("screeningToMovie")
     Movie movie;
 
     @ManyToOne
     @JoinColumn(name="cinema_id", nullable = false)
-    @JsonBackReference
+    @JsonBackReference("screeningToCinema")
     Cinema cinema;
+
+    @OneToMany (mappedBy = "screening",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @JsonManagedReference("ticketToScreening")
+    List<Ticket> tickets = new ArrayList<>();
+
+
 
     public Screening(){}
 

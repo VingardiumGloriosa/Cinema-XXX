@@ -10,6 +10,7 @@ import java.util.List;
 @Repository
 public interface TicketRepository extends CrudRepository<Ticket, Integer> {
 
+        List<Ticket> findAll();
 //    TicketDTO findTicketByTicketId(int id);
 //    List<Ticket> findTicketByReservationEmail(String reservationEmail);
 //    List<Ticket> findTicketByReservationName(String reservationName);

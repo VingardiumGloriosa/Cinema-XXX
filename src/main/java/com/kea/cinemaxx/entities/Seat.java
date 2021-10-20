@@ -26,12 +26,12 @@ public class Seat {
 
     //orphanRemoval will delete any tickets for this seat when the seat is deleted
     @OneToOne (orphanRemoval = true, mappedBy = "seat", cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-    @JsonManagedReference ("ticketForSeat")
+    @JsonBackReference ("ticketForSeat")
     Ticket ticket;
 
     @ManyToOne
     @JoinColumn(name = "hall_id", nullable = false)
-    @JsonBackReference
+    @JsonBackReference("seatToHall")
     Hall hall;
 
     public Seat(){}
