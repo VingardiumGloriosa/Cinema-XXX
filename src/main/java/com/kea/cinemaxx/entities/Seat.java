@@ -36,11 +36,10 @@ public class Seat {
 
     public Seat(){}
 
-    public  Seat(int seatRow, char seatColumn, boolean reserved, Ticket ticket, Hall hall){
+    public  Seat(int seatRow, char seatColumn, boolean reserved, Hall hall){
         this.seatRow = seatRow;
         this.seatColumn = seatColumn;
         this.reserved = reserved;
-        this.ticket = ticket;
         this.hall = hall;
     }
 
