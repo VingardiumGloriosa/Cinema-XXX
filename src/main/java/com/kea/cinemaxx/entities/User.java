@@ -24,10 +24,12 @@ public class User {
 //    String userName;
 
     @OneToMany(orphanRemoval = true, mappedBy = "user", cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-    @JsonManagedReference ("ticketsToUser")
+    @JsonManagedReference ("ticketsForUser")
     List<Ticket> tickets = new ArrayList<>();
 
     public User() {}
+
+    public User(int userId) { this.userId = userId; }
 
     public User(boolean admin) {
         this.admin = admin;

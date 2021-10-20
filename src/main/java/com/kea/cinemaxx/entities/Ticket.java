@@ -44,10 +44,4 @@ public class Ticket {
         this.screening = screening;
     }
 
-    public void resetTicket(Seat seatToKeep) {
-        this.purchased = false;
-        this.user = null;
-        this.seat = seatToKeep;
-    }
-
 }
