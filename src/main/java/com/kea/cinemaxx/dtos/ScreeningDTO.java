@@ -22,12 +22,7 @@ public class ScreeningDTO {
 
     int screeningId;
     LocalTime time;
-    LocalDate date; //should set date format? @JsonFormat(pattern = "dd-MM-YYYY")
-
-//    String movieTitle;
-//    int hallId;
-//    String cinemaName;
-
+    LocalDate date;
     Movie movie;
     Hall hall;
     Cinema cinema;
