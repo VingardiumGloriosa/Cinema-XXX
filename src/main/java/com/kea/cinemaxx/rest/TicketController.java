@@ -2,10 +2,7 @@ package com.kea.cinemaxx.rest;
 
 import com.kea.cinemaxx.dtos.TicketDTO;
 import com.kea.cinemaxx.services.TicketService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,6 +27,16 @@ public class TicketController {
     }
 
     // create booking (Sam)
+
+    @PostMapping()
+    TicketDTO addTicket(@RequestBody TicketDTO newTicket){
+
+        return ticketService.addTicket(newTicket);}
+
+    @GetMapping("/{screeningId}/{seatId}")
+    boolean isTicketFree(@PathVariable int screeningId, @PathVariable int seatId){
+        return ticketService.isTicketFree(screeningId, seatId);
+    }
 
     // cancel booking (Chia)
 

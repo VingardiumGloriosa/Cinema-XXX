@@ -21,14 +21,13 @@ public class SeatDTO {
     int seatRow;
     char seatColumn;
     boolean reserved;
-    Ticket ticket;
+
     Hall hall;
 
-    public SeatDTO(int seatRow, char seatColumn, boolean reserved, Ticket ticket, Hall hall){
+    public SeatDTO(int seatRow, char seatColumn, boolean reserved, Hall hall){
         this.seatRow = seatRow;
         this.seatColumn = seatColumn;
         this.reserved = reserved;
-        this.ticket = ticket;
         this.hall = hall;
     }
 
@@ -36,7 +35,6 @@ public class SeatDTO {
         this.seatRow = seat.getSeatRow();
         this.seatColumn = seat.getSeatColumn();
         this.reserved = seat.isReserved();
-        this.ticket = seat.getTicket();
         this.hall = seat.getHall();
         this.seatId = seat.getSeatId();
     }
@@ -49,7 +47,7 @@ public class SeatDTO {
     }
 
     public static Seat seatFromSeatDTO(SeatDTO seat){
-        return new Seat(seat.getSeatRow(),seat.getSeatColumn(),seat.isReserved(),seat.getTicket(), seat.getHall());
+        return new Seat(seat.getSeatRow(),seat.getSeatColumn(),seat.isReserved(), seat.getHall());
     }
 
 }
