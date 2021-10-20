@@ -1,18 +1,27 @@
 package com.kea.cinemaxx.services;
 
-import com.kea.cinemaxx.dtos.ScreeningDTO;
+import com.kea.cinemaxx.dtos.SeatDTO;
 import com.kea.cinemaxx.dtos.TicketDTO;
-import com.kea.cinemaxx.entities.Screening;
+import com.kea.cinemaxx.dtos.UserDTO;
+import com.kea.cinemaxx.entities.Seat;
 import com.kea.cinemaxx.entities.Ticket;
+import com.kea.cinemaxx.repositiories.SeatRepository;
 import com.kea.cinemaxx.repositiories.TicketRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TicketService {
 
     TicketRepository ticketRepository;
+
+    final ResponseStatusException UNAUTHORIZED_USER = new ResponseStatusException(
+            HttpStatus.UNAUTHORIZED, "User does not have permissions to perform this action."
+    );
 
     public List<TicketDTO> getTickets() {
         //and other conditions maybe? the admin should be able to see these?
@@ -36,27 +45,43 @@ public class TicketService {
     }
 
     // edit booking (Chia)
-    // if ticket exists and this.user_id == booking.user_id
-    // show free seats for the same screening (wouldn't make sense to change anything else)
-    // edit ticket.seat_id
-    public TicketDTO editTicket(TicketDTO ticketToEdit, int ticketId) {
-        Ticket ticketOrg = ticketRepository.findById(ticketId).orElseThrow();
-        ticketOrg.setPurchased(ticketToEdit.isPurchased());
-        ticketOrg.setUser(ticketToEdit.getUser());
-        ticketOrg.setSeat(ticketToEdit.getSeat());
-        ticketOrg.setScreening(ticketToEdit.getScreening());
-        return new TicketDTO(ticketRepository.save(ticketOrg));
+    public TicketDTO editTicket(TicketDTO ticketToEdit, UserDTO ticketOwnerOrAdmin, int ticketId) {
+
+        Ticket oldTicket = ticketRepository.findById(ticketId).orElseThrow();
+
+        if (ticketOwnerOrAdmin.isAdmin() || ticketOwnerOrAdmin.getUserId() == oldTicket.getUser().getUserId()) {
+
+            Ticket newTicket = ticketRepository.findBySeat(ticketToEdit.getSeat());
+
+            ticketToEdit.setPurchased(oldTicket.isPurchased());
+            ticketToEdit.setUser(oldTicket.getUser());
+            ticketToEdit.setScreening(oldTicket.getScreening());
+
+            oldTicket.resetTicket(oldTicket.getSeat());
+
+            //ticket 1 paid | seat 1
+            //ticket 2 not paid | seat 2
+            //ticket 1 paid | seat 1 -> 2 => ticket 1.reset(), ticket 2 paid=true, user=this, seat=2(stays the same)
+
+            return new TicketDTO(ticketRepository.save(oldTicket));
+        }
+        else throw UNAUTHORIZED_USER; //exception declared above
     }
 
     // cancel booking (Chia)
-    // if ticket exists and this.user_id == booking.user_id
-    // delete ticket
-    // set seat to reserved=false again
-    public void deleteTicket(int ticketId) {
-        ticketRepository.deleteById(ticketId);
+    public void deleteTicket(UserDTO ticketOwnerOrAdmin, int ticketId) {
+
+        Ticket ticketOrg = ticketRepository.findById(ticketId).orElseThrow();
+        if (ticketOwnerOrAdmin.isAdmin() || ticketOwnerOrAdmin.getUserId() == ticketOrg.getUser().getUserId()) {
+
+            ticketOrg.setPurchased(false);
+            ticketOrg.setUser(null);
+            TicketDTO newTicket = new TicketDTO(ticketRepository.save(ticketOrg));
+//            ticketRepository.deleteById(ticketId); // can't actually be deleted like that!
+
+        }
+
+        else throw UNAUTHORIZED_USER; //exception declared above
     }
-
-
-
 
 }

@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter @Setter
@@ -21,13 +22,10 @@ public class Seat {
     @Column
     char seatColumn;
 
-    @Column
-    boolean reserved = false; //if ticket.purchased=true set this to true
-
     //orphanRemoval will delete any tickets for this seat when the seat is deleted
-    @OneToOne (orphanRemoval = true, mappedBy = "seat", cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @OneToMany (orphanRemoval = true, mappedBy = "seat", cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     @JsonManagedReference ("ticketForSeat")
-    Ticket ticket;
+    List<Ticket> tickets;
 
     @ManyToOne
     @JoinColumn(name = "hall_id", nullable = false)
@@ -36,10 +34,9 @@ public class Seat {
 
     public Seat(){}
 
-    public  Seat(int seatRow, char seatColumn, boolean reserved, Hall hall){
+    public  Seat(int seatRow, char seatColumn, Hall hall){
         this.seatRow = seatRow;
         this.seatColumn = seatColumn;
-        this.reserved = reserved;
         this.hall = hall;
     }
 
