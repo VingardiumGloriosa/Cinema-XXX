@@ -11,8 +11,9 @@ import java.util.List;
 @Repository
 public interface TicketRepository extends CrudRepository<Ticket, Integer> {
 
-//        List<Ticket> findAll();
+        List<Ticket> findAll();
         Ticket findBySeat(Seat seat);
+
 
 //    List<Ticket> findTicketByReservationEmail(String reservationEmail);
 //    List<Ticket> findTicketByReservationName(String reservationName);

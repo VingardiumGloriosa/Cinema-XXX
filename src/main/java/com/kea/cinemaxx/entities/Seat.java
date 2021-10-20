@@ -29,7 +29,7 @@ public class Seat {
 
     @ManyToOne
     @JoinColumn(name = "hall_id", nullable = false)
-    @JsonBackReference
+    @JsonBackReference("seatToHall")
     Hall hall;
 
     public Seat(){}

@@ -23,17 +23,17 @@ public class Hall {
 
     @ManyToOne
     @JoinColumn(name="cinema_id", nullable=false)
-    @JsonBackReference // add values with the same names to make it reference the right things
+    @JsonBackReference("cinemaToHall") // add values with the same names to make it reference the right things
     Cinema cinema;
 
     //orphanRemoval will delete any screenings for this hall when the hall is deleted
     @OneToMany (orphanRemoval = true, mappedBy = "hall", cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-    @JsonManagedReference
+    @JsonManagedReference("screeningToHall")
     List<Screening> screenings = new ArrayList<>();
 
     //orphanRemoval will delete any seats for this hall when the hall is deleted
     @OneToMany(orphanRemoval = true, mappedBy = "hall", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JsonManagedReference
+    @JsonManagedReference("seatToHall")
     List<Seat> seats = new ArrayList<>();
 
     public Hall(){}
