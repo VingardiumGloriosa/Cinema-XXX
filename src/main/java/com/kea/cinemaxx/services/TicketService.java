@@ -19,13 +19,19 @@ public class TicketService {
 
     TicketRepository ticketRepository;
 
+    public TicketService(TicketRepository ticketRepository) {
+        this.ticketRepository = ticketRepository;
+    }
+
+
     final ResponseStatusException UNAUTHORIZED_USER = new ResponseStatusException(
             HttpStatus.UNAUTHORIZED, "User does not have permissions to perform this action."
     );
 
     public List<TicketDTO> getTickets() {
         //and other conditions maybe? the admin should be able to see these?
-        return TicketDTO.TicketDTOSfromTicket(ticketRepository.findAll());
+        Iterable<Ticket> tickets = ticketRepository.findAll();
+        return TicketDTO.TicketDTOSfromTicket(tickets);
     }
 
     public TicketDTO getTicket(int ticketId) {
