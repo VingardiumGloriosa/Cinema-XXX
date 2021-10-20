@@ -79,5 +79,17 @@ public class DataSetup implements CommandLineRunner{
         screeningRepository.save(screening03);
         screeningRepository.save(screening04);
 
+<<<<<<< Updated upstream
+=======
+        Seat seat1 = new Seat(1,'A',hall1);
+        seatRepository.save(seat1);
+
+        User user1 = new User(true);
+        userRepository.save(user1);
+
+        Ticket ticket1 = new Ticket(true, user1, seat1, screening01);
+        ticketRepository.save(ticket1);
+
+>>>>>>> Stashed changes
     }
 }
