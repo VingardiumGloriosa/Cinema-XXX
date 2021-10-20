@@ -44,7 +44,7 @@ public class ScreeningController {
     }
 
     @PutMapping("/edit/{screeningId}")
-    ScreeningDTO editScreening(@RequestBody ScreeningDTO screeningToEdit,@PathVariable int screeningId) throws Exception {
+    ScreeningDTO editScreening(@RequestBody ScreeningDTO screeningToEdit, @PathVariable int screeningId) throws Exception {
         return screeningService.editScreening(screeningToEdit,screeningId);
     }
 

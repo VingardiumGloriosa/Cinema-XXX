@@ -1,7 +1,9 @@
 package com.kea.cinemaxx.dtos;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.kea.cinemaxx.entities.Hall;
 import com.kea.cinemaxx.entities.Seat;
+import com.kea.cinemaxx.entities.Ticket;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,20 +18,26 @@ import java.util.stream.StreamSupport;
 public class SeatDTO {
 
     int seatId;
-    int row;
-    char column;
+    int seatRow;
+    char seatColumn;
     boolean reserved;
+    Ticket ticket;
+    Hall hall;
 
-    public SeatDTO(int row, char column, boolean reserved){
-        this.row = row;
-        this.column = column;
+    public SeatDTO(int seatRow, char seatColumn, boolean reserved, Ticket ticket, Hall hall){
+        this.seatRow = seatRow;
+        this.seatColumn = seatColumn;
         this.reserved = reserved;
+        this.ticket = ticket;
+        this.hall = hall;
     }
 
     public SeatDTO(Seat seat){
-        this.row = seat.getRow();
-        this.column = seat.getColumn();
+        this.seatRow = seat.getSeatRow();
+        this.seatColumn = seat.getSeatColumn();
         this.reserved = seat.isReserved();
+        this.ticket = seat.getTicket();
+        this.hall = seat.getHall();
         this.seatId = seat.getSeatId();
     }
 
@@ -41,7 +49,7 @@ public class SeatDTO {
     }
 
     public static Seat seatFromSeatDTO(SeatDTO seat){
-        return new Seat(seat.getRow(),seat.getColumn(),seat.isReserved());
+        return new Seat(seat.getSeatRow(),seat.getSeatColumn(),seat.isReserved(),seat.getTicket(), seat.getHall());
     }
 
 }

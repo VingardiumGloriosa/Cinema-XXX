@@ -14,6 +14,9 @@ import springfox.bean.validators.configuration.BeanValidatorPluginsConfiguration
 @EnableSwagger2
 @Import(BeanValidatorPluginsConfiguration.class)
 public class SwaggerConfig {
+
+    // http://localhost:9090/swagger-ui.html#/ // will not be local host in the future
+
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
