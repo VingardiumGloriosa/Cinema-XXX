@@ -37,10 +37,10 @@ public class TicketController {
         return ticketService.addTicket(newTicket);
     }
 
-    @GetMapping("/{screeningId}/{seatId}")
-    boolean isTicketFree(@PathVariable int screeningId, @PathVariable int seatId){
-        return ticketService.isTicketFree(screeningId, seatId);
-    }
+//    @GetMapping("/{screeningId}/{seatId}")
+//    boolean isTicketFree(@PathVariable int screeningId, @PathVariable int seatId){
+//        return ticketService.isTicketFree(screeningId, seatId);
+//    }
 
     // edit booking (Chia)
     @PutMapping("/edit-booking/{ticketId}")

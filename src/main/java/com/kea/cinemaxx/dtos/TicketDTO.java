@@ -7,7 +7,9 @@ import com.kea.cinemaxx.entities.Ticket;
 import com.kea.cinemaxx.entities.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.Setter;
+import org.springframework.lang.Nullable;
 
 import java.util.List;
 import java.util.stream.Collectors;

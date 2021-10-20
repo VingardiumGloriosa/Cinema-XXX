@@ -11,10 +11,13 @@ import java.util.List;
 @Repository
 public interface TicketRepository extends CrudRepository<Ticket, Integer> {
 
+//        List<Ticket> findAll();
+        Ticket findBySeat(Seat seat);
+
 //    List<Ticket> findTicketByReservationEmail(String reservationEmail);
 //    List<Ticket> findTicketByReservationName(String reservationName);
 //    List<Ticket> findTicketByScreening(int screeningId); //does this make sense? maybe we don't need it now
         Ticket findTicketByScreening_ScreeningIdAndSeat_SeatId(int screening, int seat);
-        Ticket findBySeat(Seat seat);
+
 
 }
