@@ -21,7 +21,6 @@ public class CinemaDTO {
     int zipCode;
     String name;
 
-
     public CinemaDTO(int numOfHalls, String address, int zipCode, String name) {
         this.numOfHalls = numOfHalls;
         this.address = address;

@@ -1,7 +1,10 @@
 package com.kea.cinemaxx.dtos;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.kea.cinemaxx.entities.Screening;
+import com.kea.cinemaxx.entities.Seat;
 import com.kea.cinemaxx.entities.Ticket;
+import com.kea.cinemaxx.entities.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,19 +19,23 @@ import java.util.stream.StreamSupport;
 public class TicketDTO {
 
     int ticketId;
-    String reservationName;
-    String reservationEmail;
-    int seatId;
-    int screeningId;
+    boolean purchased;
+    User user; // the user CAN be null since some tickets will not be purchased yet
+    Seat seat;
+    Screening screening;
 
-    public TicketDTO(String reservationName, String reservationEmail){
-        this.reservationName = reservationName;
-        this.reservationEmail = reservationEmail;
+    public TicketDTO(boolean purchased, User user, Seat seat, Screening screening){
+        this.purchased = purchased;
+        this.user = user;
+        this.seat = seat;
+        this.screening = screening;
     }
 
     public TicketDTO(Ticket ticket){
-        this.reservationName = ticket.getReservationName();
-        this.reservationEmail = ticket.getReservationEmail();
+        this.purchased = ticket.isPurchased();
+        this.user = ticket.getUser();
+        this.seat = ticket.getSeat();
+        this.screening = ticket.getScreening();
         this.ticketId = ticket.getTicketId();
     }
 
@@ -40,7 +47,7 @@ public class TicketDTO {
     }
 
     public static Ticket ticketFromTicketDTO(TicketDTO ticket){
-        return new Ticket(ticket.getReservationName(),ticket.getReservationEmail(), ticket.getSeatId(), ticket.getScreeningId());
+        return new Ticket(ticket.isPurchased(),ticket.getUser(), ticket.getSeat(), ticket.getScreening());
     }
 
 }
