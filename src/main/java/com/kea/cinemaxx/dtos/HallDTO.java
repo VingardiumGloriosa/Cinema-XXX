@@ -25,7 +25,8 @@ public class HallDTO {
     }
 
     public HallDTO(Hall hall){
-        this.numberOfSeats = getNumberOfSeats();
+        this.cinema =hall.getCinema();
+        this.numberOfSeats = hall.getNumberOfSeats();
         this.hallId = hall.getHallId();
     }
 
