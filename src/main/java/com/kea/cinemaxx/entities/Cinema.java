@@ -30,8 +30,13 @@ public class Cinema {
     String name;
 
     @OneToMany (mappedBy = "cinema",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-    @JsonManagedReference
+    @JsonManagedReference("cinemaToHall")
     List<Hall> halls = new ArrayList<>();
+
+    @OneToMany (mappedBy = "cinema",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @JsonManagedReference("ticketToScreening")
+    List<Screening> screenings = new ArrayList<>();
+
 
     public Cinema() {}
 

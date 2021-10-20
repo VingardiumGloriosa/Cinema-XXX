@@ -26,7 +26,8 @@ public class TicketService {
 
     public List<TicketDTO> getTickets() {
         //and other conditions maybe? the admin should be able to see these?
-        return TicketDTO.TicketDTOSfromTicket(ticketRepository.findAll());
+        Iterable<Ticket> tickets = ticketRepository.findAll();
+        return TicketDTO.TicketDTOSfromTicket(tickets);
     }
 
     public TicketDTO getTicket(int ticketId) {
