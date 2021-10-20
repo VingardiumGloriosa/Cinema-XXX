@@ -7,6 +7,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 @Entity
 @Getter @Setter
@@ -37,6 +38,8 @@ public class Screening {
     @JoinColumn(name="cinema_id", nullable = false)
     @JsonBackReference
     Cinema cinema;
+
+//    List<Ticket> tickets // This needs to be created yet!
 
     public Screening(){}
 

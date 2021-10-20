@@ -19,6 +19,10 @@ public class SeatService {
         return  new SeatDTO(seat);
     }
 
-
     // get list of free seats (Patrik)
+
+    public void updateSeat() {
+
+    }
+
 }
