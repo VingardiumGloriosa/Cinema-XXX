@@ -22,8 +22,10 @@ Special thanks to Chiara who picked up a lot of slack and helped me in many area
 -------------------------------------------------------------------------------------------------
 Section 2 - Gloria Grofova (GitHub username: MrBigRedButton)
 
-I mostly participated in: 
-
+I mostly participated in:
+- setting up the movies controller,
+- setting up the IMDB apis to retrieve data from an external source,
+- making sure that all the data from the external sources would match our system's logic.
 
 -------------------------------------------------------------------------------------------------
 Section 3 - Patrik Selecky (GitHub username: Glória - VingardiumGloriosa)
