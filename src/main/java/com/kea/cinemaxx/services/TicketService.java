@@ -1,7 +1,6 @@
 package com.kea.cinemaxx.services;
 
 import com.kea.cinemaxx.dtos.TicketDTO;
-import com.kea.cinemaxx.dtos.UserDTO;
 import com.kea.cinemaxx.entities.Seat;
 import com.kea.cinemaxx.entities.Ticket;
 import com.kea.cinemaxx.entities.User;
@@ -25,7 +24,6 @@ public class TicketService {
         this.ticketRepository = ticketRepository;
         this.userRepository = userRepository;
         this.seatRepository = seatRepository;
-
     }
 
     final ResponseStatusException UNAUTHORIZED_USER = new ResponseStatusException(
@@ -49,10 +47,6 @@ public class TicketService {
         return new TicketDTO(ticketRepository.save(ticketToMake));
     }
 
-//    public boolean isTicketFree(int screeningId, int seatId){
-//        Ticket t = ticketRepository.findTicketByScreening_ScreeningIdAndSeat_SeatId(screeningId, seatId);
-//        return t==null ? true : false;
-//    }
 
     public TicketDTO reserveTicket(int userId, int ticketId) {
 
@@ -82,9 +76,9 @@ public class TicketService {
     public TicketDTO editTicket(int userId, int newSeatId, int ticketId) {
 
         Ticket oldTicket = ticketRepository.findById(ticketId).orElseThrow();
-        User currentUser = userRepository.findById(userId).orElseThrow();
+        User ticketOwnerOrAdmin = userRepository.findById(userId).orElseThrow();
 
-        if (currentUser.isAdmin() || currentUser.getUserId() == oldTicket.getUser().getUserId()) {
+        if (ticketOwnerOrAdmin.isAdmin() || ticketOwnerOrAdmin.getUserId() == oldTicket.getUser().getUserId()) {
 
             Seat newSeat = seatRepository.findById(newSeatId).orElseThrow();
 
@@ -109,9 +103,10 @@ public class TicketService {
     }
 
     // cancel booking (Chia)
-    public void deleteTicket(UserDTO ticketOwnerOrAdmin, int ticketId) {
+    public void deleteTicket(int userId, int ticketId) {
 
         Ticket ticketOrg = ticketRepository.findById(ticketId).orElseThrow();
+        User ticketOwnerOrAdmin = userRepository.findById(userId).orElseThrow();
 
         if (ticketOwnerOrAdmin.isAdmin() || ticketOwnerOrAdmin.getUserId() == ticketOrg.getUser().getUserId()) {
             ticketOrg.setPurchased(false);
