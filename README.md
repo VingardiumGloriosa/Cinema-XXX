@@ -9,8 +9,15 @@ Your README file should also include a link to your hosted server and (if any) t
 -------------------------------------------------------------------------------------------------
 Section 1 - Samuel Bartek (GitHub usernames: DedicatedWorker4ever or TheSamuelBartek)
 
-I mostly participated in: 
+I mostly participated in:
+-Setting up entetities, dtos, and repositories at the start of the project
+-Foundation of #1-2(not actual search), Get for #3
+-Setting up dataSetup, connecting entities and adjusting JSON return format
+-Debugging api and going back to make sure points still worked after mergers and adjustments,
+which broke down
+-Being Scrum master for first sprint
 
+Special thanks to Chiara who picked up a lot of slack and helped me in many areas.
 
 -------------------------------------------------------------------------------------------------
 Section 2 - Gloria Grofova (GitHub username: MrBigRedButton)
