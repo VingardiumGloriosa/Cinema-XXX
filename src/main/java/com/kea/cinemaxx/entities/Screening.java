@@ -41,7 +41,7 @@ public class Screening {
     @JsonBackReference("screeningToCinema")
     Cinema cinema;
 
-    @OneToMany (mappedBy = "screening",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @OneToMany (mappedBy = "screening",cascade = {CascadeType.REMOVE}) //might delete too much other stuff?
     @JsonManagedReference("ticketToScreening")
     List<Ticket> tickets = new ArrayList<>();
 
