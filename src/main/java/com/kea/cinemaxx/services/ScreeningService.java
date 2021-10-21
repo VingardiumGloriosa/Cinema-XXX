@@ -2,6 +2,8 @@ package com.kea.cinemaxx.services;
 
 import com.kea.cinemaxx.dtos.CinemaDTO;
 import com.kea.cinemaxx.dtos.ScreeningDTO;
+import com.kea.cinemaxx.dtos.SeatDTO;
+import com.kea.cinemaxx.dtos.TicketDTO;
 import com.kea.cinemaxx.entities.*;
 import com.kea.cinemaxx.repositiories.*;
 import org.springframework.stereotype.Service;
@@ -21,14 +23,16 @@ public class ScreeningService {
     TicketRepository ticketRepository;
     UserRepository userRepository;
     HallRepository hallRepository;
+    SeatRepository seatRepository;
 
-    public ScreeningService (ScreeningRepository screeningRepository, MovieRepository movieRepository, CinemaRepository cinemaRepository, TicketRepository ticketRepository, UserRepository userRepository, HallRepository hallRepository) {
+    public ScreeningService (ScreeningRepository screeningRepository, MovieRepository movieRepository, CinemaRepository cinemaRepository, TicketRepository ticketRepository, UserRepository userRepository, HallRepository hallRepository, SeatRepository seatRepository) {
         this.screeningRepository = screeningRepository;
         this.movieRepository = movieRepository;
         this.cinemaRepository = cinemaRepository;
         this.ticketRepository = ticketRepository;
         this.userRepository = userRepository;
         this.hallRepository = hallRepository;
+        this.seatRepository = seatRepository;
     }
 
     public List<ScreeningDTO> getScreenings(String date1, String date2, String cinemaName, String movieName) {
@@ -158,16 +162,20 @@ public class ScreeningService {
         List<Ticket> screeningTickets = new ArrayList<>();
         User admin = userRepository.findByAdminIsTrue().get(0);
 
-//        // generating new tickets for the new screening // not working yet
-//        for (Seat seat: screeningSeats) {
-//            Ticket ticket = new Ticket(false, admin, seat, newScreening);
-//            screeningTickets.add(ticket);
-//            ticketRepository.save(ticket);
-//        }
+        ScreeningDTO screening = new ScreeningDTO(screeningRepository.save(newScreening));
+
+        // generating new tickets for the new screening // not working yet
+        for (Seat seat: screeningSeats) {
+            SeatDTO seatDTO = new SeatDTO(seatRepository.save(seat));
+            Ticket ticket = new Ticket(false, admin, seat, newScreening);
+            screeningTickets.add(ticket);
+            TicketDTO ticketDTO = new TicketDTO(ticketRepository.save(ticket));
+        }
 
         newScreening.setTickets(screeningTickets);
 
-        return new ScreeningDTO(screeningRepository.save(newScreening));
+//        return new ScreeningDTO(screeningRepository.save(newScreening));
+        return screening;
     }
 
     public ScreeningDTO editScreening(ScreeningDTO screeningToEdit, int screeningId) {
