@@ -1,6 +1,7 @@
 package com.kea.cinemaxx.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
@@ -42,7 +43,7 @@ public class Screening {
     Cinema cinema;
 
     @OneToMany (mappedBy = "screening",cascade = {CascadeType.REMOVE}) //might delete too much other stuff?
-    @JsonManagedReference("ticketToScreening")
+    @JsonIgnore
     List<Ticket> tickets = new ArrayList<>();
 
     public Screening(){}

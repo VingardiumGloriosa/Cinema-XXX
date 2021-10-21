@@ -1,6 +1,7 @@
 package com.kea.cinemaxx.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import com.kea.cinemaxx.dtos.MovieDTO;
@@ -56,7 +57,7 @@ public class Movie {
     //I considered adding the CascadeType.REMOVE to this variable BUT I found out that orphanRemoval=true does exactly what we needed:
     //it will remove all the referenced screenings for 'this' movie ;);)
     @OneToMany (orphanRemoval = true, mappedBy = "movie",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-    @JsonManagedReference ("screeningToMovie")
+    @JsonIgnore
     List<Screening> screenings = new ArrayList<>();
 
     public Movie(){}
