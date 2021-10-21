@@ -50,9 +50,9 @@ public class TicketController {
     }
 
     // cancel booking (Chia)
-    @PutMapping("/delete-booking/{ticketId}")
-    void deleteBooking(@RequestBody UserDTO ticketOwnerOrAdmin, @PathVariable int ticketId) {
-        ticketService.deleteTicket(ticketOwnerOrAdmin, ticketId);
+    @PutMapping("/delete-booking")
+    void deleteBooking(@RequestBody int userId, @RequestParam int ticketId) {
+        ticketService.deleteTicket(userId, ticketId);
     }
 
 }
