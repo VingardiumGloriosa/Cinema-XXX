@@ -17,7 +17,7 @@ public class ScreeningController {
         this.screeningService = screeningService;
     }
 
-    @GetMapping("/options")
+    @GetMapping("/get")
     @ResponseBody
     List<ScreeningDTO> getScreenings(@RequestParam (required = false) String date1,
                                      @RequestParam (required = false) String date2,
@@ -37,9 +37,13 @@ public class ScreeningController {
     }
 
     @PostMapping
-    ScreeningDTO addScreening(@RequestBody ScreeningDTO newScreening) {
-        return screeningService.addScreening(newScreening);
-        //add a bunch of tickets
+    ScreeningDTO addScreening(/* @RequestBody ScreeningDTO newScreening */
+                                @RequestParam String date,
+                                @RequestParam String time,
+                                @RequestParam String movieId,
+                                @RequestParam int hallId
+                                ) {
+        return screeningService.addScreening(date,time,movieId,hallId);
     }
 
     @PutMapping("/edit/{screeningId}")
