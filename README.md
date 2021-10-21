@@ -29,7 +29,12 @@ I mostly participated in:
 Section 3 - Patrik Selecky (GitHub username: Glória - VingardiumGloriosa)
 
 I mostly participated in:
+- setting up the CI/CD pipeline through jenkins
+- setting up the db on aws ec2 instance
+- partially point 4 of the first sprint and pont 5 of the second sprint
 
+I would like to thank everyone that patiently answered my seemingly never ending questions!
+Many thanks to everyone that helped with making my code actually run.
 
 -------------------------------------------------------------------------------------------------
 Section 4 - Chiara Visca (GitHub username: Chia - chia030)
