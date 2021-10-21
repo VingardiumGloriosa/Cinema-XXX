@@ -28,6 +28,11 @@ public class TicketController {
         return ticketService.getTicket(id);
     }
 
+    @GetMapping("/getSeats/{purchased}/{screeningId}")
+    List<TicketDTO> getSeatsByBooking(@PathVariable boolean purchased, @PathVariable int screeningId){
+        return ticketService.getSeatsByBooking(purchased, screeningId);
+    }
+
     @PostMapping()
     TicketDTO addTicket(@RequestBody TicketDTO newTicket){
         return ticketService.addTicket(newTicket);
