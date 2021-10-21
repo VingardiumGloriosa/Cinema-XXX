@@ -5,6 +5,7 @@ import com.kea.cinemaxx.dtos.UserDTO;
 import com.kea.cinemaxx.entities.Ticket;
 import com.kea.cinemaxx.entities.User;
 import com.kea.cinemaxx.repositiories.TicketRepository;
+import com.kea.cinemaxx.repositiories.UserRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -15,9 +16,12 @@ import java.util.List;
 public class TicketService {
 
     TicketRepository ticketRepository;
+    UserRepository userRepository;
 
-    public TicketService(TicketRepository ticketRepository) {
+    public TicketService(TicketRepository ticketRepository, UserRepository userRepository) {
         this.ticketRepository = ticketRepository;
+        this.userRepository = userRepository;
+
     }
 
     final ResponseStatusException UNAUTHORIZED_USER = new ResponseStatusException(
@@ -45,6 +49,26 @@ public class TicketService {
 //        Ticket t = ticketRepository.findTicketByScreening_ScreeningIdAndSeat_SeatId(screeningId, seatId);
 //        return t==null ? true : false;
 //    }
+
+    public TicketDTO reserveTicket(int userId, int ticketId) {
+
+        Ticket ticketToReserve = ticketRepository.findById(ticketId).orElseThrow();
+        User user = userRepository.findById(userId).orElseThrow();
+
+        // existing user wants to purchase a free ticket
+        if (!(ticketToReserve.isPurchased())) {
+            ticketToReserve.setPurchased(true);
+            ticketToReserve.setUser(user);
+        }
+
+        // the ticket is not free
+        else {
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_ACCEPTABLE, "The ticket cannot be purchased as it currently belongs to someone else."
+            );
+        }
+        return new TicketDTO(ticketRepository.save(ticketToReserve));
+    }
 
     // edit booking (Chia)
     public TicketDTO editTicket(TicketDTO ticketRequest, UserDTO ticketOwnerOrAdmin, int ticketId) {

@@ -17,7 +17,7 @@ public class ScreeningController {
         this.screeningService = screeningService;
     }
 
-    @GetMapping("/options")
+    @GetMapping("/get")
     @ResponseBody
     List<ScreeningDTO> getScreenings(@RequestParam (required = false) String date1,
                                      @RequestParam (required = false) String date2,

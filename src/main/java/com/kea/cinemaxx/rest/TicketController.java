@@ -37,10 +37,11 @@ public class TicketController {
         return ticketService.addTicket(newTicket);
     }
 
-//    @GetMapping("/{screeningId}/{seatId}")
-//    boolean isTicketFree(@PathVariable int screeningId, @PathVariable int seatId){
-//        return ticketService.isTicketFree(screeningId, seatId);
-//    }
+    @PutMapping("/reserve-ticket")
+    TicketDTO reserveTicket(@RequestParam int userId, @RequestParam int ticketId) {
+        // ...api/tickets/reserve-ticket?userId=2&ticketId=3
+        return ticketService.reserveTicket(userId, ticketId);
+    }
 
     // edit booking (Chia)
     @PutMapping("/edit-booking/{ticketId}")

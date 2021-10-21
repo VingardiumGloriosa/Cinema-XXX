@@ -19,11 +19,7 @@ public class User {
     @Column(length = 1,nullable = false)
     boolean admin;
 
-//    I'm not sure a userName is even needed!
-//    @Column(length = 60,nullable = false)
-//    String userName;
-
-    @OneToMany(orphanRemoval = true, mappedBy = "user", cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     @JsonManagedReference ("ticketsForUser")
     List<Ticket> tickets = new ArrayList<>();
 
