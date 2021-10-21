@@ -1,6 +1,6 @@
 We committed to completing points 1-7 and we did it.
 
-1. Pipeline READY - Done
+1. Pipeline READY - Done!
 2. Complete Sprint-1 (- security) - Done!
 3. Add Link to image(s) + trailer(s) and poster(s) to "Get movie info" - Done!
 4. Endpoint to let an authenticated user create a booking for seats for a specific movie, cinema hall and (start) time - Done!
