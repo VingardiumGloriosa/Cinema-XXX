@@ -2,16 +2,14 @@ package com.kea.cinemaxx.services;
 
 import com.kea.cinemaxx.dtos.CinemaDTO;
 import com.kea.cinemaxx.dtos.ScreeningDTO;
-import com.kea.cinemaxx.entities.Cinema;
-import com.kea.cinemaxx.entities.Movie;
-import com.kea.cinemaxx.entities.Screening;
-import com.kea.cinemaxx.repositiories.CinemaRepository;
-import com.kea.cinemaxx.repositiories.MovieRepository;
-import com.kea.cinemaxx.repositiories.ScreeningRepository;
+import com.kea.cinemaxx.entities.*;
+import com.kea.cinemaxx.repositiories.*;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -20,11 +18,17 @@ public class ScreeningService {
     ScreeningRepository screeningRepository;
     MovieRepository movieRepository;
     CinemaRepository cinemaRepository;
+    TicketRepository ticketRepository;
+    UserRepository userRepository;
+    HallRepository hallRepository;
 
-    public ScreeningService (ScreeningRepository screeningRepository, MovieRepository movieRepository, CinemaRepository cinemaRepository) {
+    public ScreeningService (ScreeningRepository screeningRepository, MovieRepository movieRepository, CinemaRepository cinemaRepository, TicketRepository ticketRepository, UserRepository userRepository, HallRepository hallRepository) {
         this.screeningRepository = screeningRepository;
         this.movieRepository = movieRepository;
         this.cinemaRepository = cinemaRepository;
+        this.ticketRepository = ticketRepository;
+        this.userRepository = userRepository;
+        this.hallRepository = hallRepository;
     }
 
     public List<ScreeningDTO> getScreenings(String date1, String date2, String cinemaName, String movieName) {
@@ -136,9 +140,34 @@ public class ScreeningService {
         return new ScreeningDTO(screening);
     }
 
-    public ScreeningDTO addScreening(ScreeningDTO newScreening) {
-        Screening screeningToMake = ScreeningDTO.screeningFromScreeningDTO(newScreening);
-        return new ScreeningDTO(screeningRepository.save(screeningToMake));
+    public ScreeningDTO addScreening(String date, String time, String movieId, int hallId) {
+
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        DateTimeFormatter timeFormatter = DateTimeFormatter.ISO_TIME; // "12:30:30"
+
+        // parsing the input data
+        LocalDate screeningDate = LocalDate.parse(date,dateFormatter);
+        LocalTime screeningTime = LocalTime.parse(time, timeFormatter);
+        Movie screeningMovie = movieRepository.findById(movieId).orElseThrow();
+        Hall screeningHall = hallRepository.findById(hallId).orElseThrow();
+        Cinema screeningCinema = screeningHall.getCinema();
+
+        Screening newScreening = new Screening(screeningTime, screeningDate,screeningMovie,screeningHall,screeningCinema);
+
+        List<Seat> screeningSeats = newScreening.getHall().getSeats();
+        List<Ticket> screeningTickets = new ArrayList<>();
+        User admin = userRepository.findByAdminIsTrue().get(0);
+
+//        // generating new tickets for the new screening // not working yet
+//        for (Seat seat: screeningSeats) {
+//            Ticket ticket = new Ticket(false, admin, seat, newScreening);
+//            screeningTickets.add(ticket);
+//            ticketRepository.save(ticket);
+//        }
+
+        newScreening.setTickets(screeningTickets);
+
+        return new ScreeningDTO(screeningRepository.save(newScreening));
     }
 
     public ScreeningDTO editScreening(ScreeningDTO screeningToEdit, int screeningId) {
@@ -152,7 +181,6 @@ public class ScreeningService {
     }
 
     public void deleteScreening(int screeningId) {
-        //Make 404 when screening is not found
         screeningRepository.deleteById(screeningId);
     }
 

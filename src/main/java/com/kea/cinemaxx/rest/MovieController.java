@@ -65,13 +65,12 @@ public class MovieController {
     @DeleteMapping("/delete/{title}")
     void deleteMovieByTitle(@PathVariable String title){movieService.deleteMovieByTitle(title);}
 
-    //TODO: figure out how to test methods that have @RequestBody DTO
-
     @PostMapping
     MovieDTO addMovie(@RequestBody MovieDTO movieDTO){
         return movieService.addMovie(movieDTO);
     }
 */
+
     @PostMapping("addById/{movieId}")
     MovieDTO addMovieById(@PathVariable String movieId) throws UnsupportedEncodingException, UnirestException {
         String query = String.format("i=%s",
@@ -81,10 +80,12 @@ public class MovieController {
                 .header("x-rapidapi-host", x_rapidapi_host)
                 .header("x-rapidapi-key", x_rapidapi_key)
                 .asJson();
-        HttpResponse<JsonNode> response2 = Unirest.get("https://imdb-api.com/API/Images/k_b5xul4h1/"+movieId)
+        HttpResponse<JsonNode> response2 = Unirest.get("https://imdb-api.com/API/Images/k_b5xul4h1/%22+movieId")
                 .asJson();
-        HttpResponse<JsonNode> response3 = Unirest.get("https://imdb-api.com/API/Trailer/k_b5xul4h1/"+movieId)
+        HttpResponse<JsonNode> response3 = Unirest.get("https://imdb-api.com/API/Trailer/k_b5xul4h1/%22+movieId")
                 .asJson();
+        String temp = response2.getBody().getObject().get("items").toString();
+        String[] split = temp.split("}");
         MovieDTO temporary = new MovieDTO(
                 response.getBody().getObject().get("imdbID").toString(),
                 response.getBody().getObject().get("Title").toString(),
@@ -96,14 +97,14 @@ public class MovieController {
                 response.getBody().getObject().get("Runtime").toString(),
                 response3.getBody().getObject().get("link").toString(),
                 response.getBody().getObject().get("Poster").toString(),
-                "kill me"//response2.getBody().getObject().get("items").toString()
+                split[0]
         );
         movieService.addMovie(temporary);
         return temporary;
     }
 
     @PutMapping("/edit/{id}")
-    MovieDTO editMovie(@RequestBody MovieDTO movieToEdit, @PathVariable int id ) throws Exception {
+    MovieDTO editMovie(@RequestBody MovieDTO movieToEdit, @PathVariable String id ) throws Exception {
         return movieService.editMovie(movieToEdit,id);
     }
 }

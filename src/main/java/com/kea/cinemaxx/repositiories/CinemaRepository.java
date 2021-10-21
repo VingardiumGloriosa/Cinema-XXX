@@ -16,5 +16,4 @@ public interface CinemaRepository extends CrudRepository<Cinema,Integer> {
     List<Cinema> findAll();
 
 
-
 }

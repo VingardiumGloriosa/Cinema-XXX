@@ -37,9 +37,13 @@ public class ScreeningController {
     }
 
     @PostMapping
-    ScreeningDTO addScreening(@RequestBody ScreeningDTO newScreening) {
-        return screeningService.addScreening(newScreening);
-        //add a bunch of tickets
+    ScreeningDTO addScreening(/* @RequestBody ScreeningDTO newScreening */
+                                @RequestParam String date,
+                                @RequestParam String time,
+                                @RequestParam String movieId,
+                                @RequestParam int hallId
+                                ) {
+        return screeningService.addScreening(date,time,movieId,hallId);
     }
 
     @PutMapping("/edit/{screeningId}")
