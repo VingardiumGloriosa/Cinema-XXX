@@ -45,8 +45,6 @@ public class Screening {
     @JsonManagedReference("ticketToScreening")
     List<Ticket> tickets = new ArrayList<>();
 
-//    List<Ticket> tickets // This needs to be created yet!
-
     public Screening(){}
 
     public  Screening(LocalTime time, LocalDate date, Movie movie, Hall hall, Cinema cinema){
