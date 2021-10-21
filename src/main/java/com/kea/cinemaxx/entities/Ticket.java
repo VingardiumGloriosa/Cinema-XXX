@@ -22,17 +22,14 @@ public class Ticket {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    @JsonBackReference ("ticketsToUser")
     User user;
 
     @ManyToOne
     @JoinColumn(name = "seat_id", nullable = false)
-    @JsonBackReference ("ticketForSeat")
     Seat seat;
 
     @ManyToOne
     @JoinColumn(name = "screening_id", nullable = false)
-    @JsonBackReference ("ticketToScreening")
     Screening screening;
 
     public Ticket(){}

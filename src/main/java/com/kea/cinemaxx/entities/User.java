@@ -1,5 +1,6 @@
 package com.kea.cinemaxx.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,7 +21,7 @@ public class User {
     boolean admin;
 
     @OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-    @JsonManagedReference ("ticketsForUser")
+    @JsonIgnore
     List<Ticket> tickets = new ArrayList<>();
 
     public User() {}
