@@ -80,9 +80,15 @@ public class DataSetup implements CommandLineRunner {
 
         User user1 = new User(true);
         User user2 = new User(false);
+        User user3 = new User(false);
+        User user4 = new User(false);
+        User user5 = new User(false);
 
         userRepository.save(user1);
         userRepository.save(user2);
+        userRepository.save(user3);
+        userRepository.save(user4);
+        userRepository.save(user5);
 
 
         //hall 1

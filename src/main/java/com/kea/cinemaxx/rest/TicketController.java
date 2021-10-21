@@ -45,8 +45,8 @@ public class TicketController {
 
     // edit booking (Chia)
     @PutMapping("/edit-booking/{ticketId}")
-    TicketDTO editBooking(@RequestBody TicketDTO ticketToEdit, @RequestBody UserDTO ticketOwnerOrAdmin, @PathVariable int ticketId) {
-        return ticketService.editTicket(ticketToEdit, ticketOwnerOrAdmin, ticketId);
+    TicketDTO editBooking(@RequestParam int userId, @RequestParam int newSeatId, @RequestParam int oldTicketId) {
+        return ticketService.editTicket(userId, newSeatId, oldTicketId);
     }
 
     // cancel booking (Chia)
