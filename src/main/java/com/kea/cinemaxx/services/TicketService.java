@@ -31,12 +31,20 @@ public class TicketService {
             HttpStatus.UNAUTHORIZED, "User does not have permissions to perform this action."
     );
 
-    public List<TicketDTO> getSeatsByBooking(boolean purchased, int screeningId) {
-        return TicketDTO.TicketDTOSfromTicket(ticketRepository.findTicketByPurchasedAndScreening_ScreeningId(purchased, screeningId));
+    public List<TicketDTO> getSeatsByBooking(boolean purchased, int screeningId, int userId) {
+
+        User user = userRepository.findById(userId).orElseThrow();
+
+        if (user.isAdmin()) {
+            return TicketDTO.TicketDTOSfromTicket(ticketRepository.findTicketByPurchasedAndScreening_ScreeningId(purchased, screeningId));
+        }
+        
+        else {
+            throw UNAUTHORIZED_USER;
+        }
     }
 
     public List<TicketDTO> getTickets() {
-        //and other conditions maybe? the admin should be able to see these?
         Iterable<Ticket> tickets = ticketRepository.findAll();
         return TicketDTO.TicketDTOSfromTicket(tickets);
     }
