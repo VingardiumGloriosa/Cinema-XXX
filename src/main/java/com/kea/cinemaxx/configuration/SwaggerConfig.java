@@ -16,6 +16,7 @@ import springfox.bean.validators.configuration.BeanValidatorPluginsConfiguration
 public class SwaggerConfig {
 
     // http://localhost:9090/swagger-ui.html#/ // will not be local host in the future
+    // http://54.83.119.163:9090/swagger-ui.html#/
 
     @Bean
     public Docket api() {

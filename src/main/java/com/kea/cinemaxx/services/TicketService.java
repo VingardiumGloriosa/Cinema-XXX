@@ -1,6 +1,7 @@
 package com.kea.cinemaxx.services;
 
 import com.kea.cinemaxx.dtos.TicketDTO;
+import com.kea.cinemaxx.entities.Screening;
 import com.kea.cinemaxx.entities.Seat;
 import com.kea.cinemaxx.entities.Ticket;
 import com.kea.cinemaxx.entities.User;

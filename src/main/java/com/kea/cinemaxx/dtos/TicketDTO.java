@@ -22,7 +22,7 @@ public class TicketDTO {
 
     int ticketId;
     boolean purchased;
-    User user; // the user CAN be null since some tickets will not be purchased yet
+    User user; //default user is user#1 (admin)
     Seat seat;
     Screening screening;
 

@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface MovieRepository extends CrudRepository<Movie, Integer> {
+public interface MovieRepository extends CrudRepository<Movie, String> {
 
     List<Movie> findMovieByRating(int rating);
     List<Movie> findMovieByYear(int year);
