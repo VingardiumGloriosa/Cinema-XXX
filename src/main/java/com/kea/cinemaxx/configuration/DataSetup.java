@@ -65,8 +65,7 @@ public class DataSetup implements CommandLineRunner {
         movieRepository.save(movie2);
         movieRepository.save(movie3);
 */
-        Movie m1 = new Movie("tt0120338","Titanic","a","b","b","c","d","f","f","r","r");
-
+        Movie m1 = new Movie("tt0120338","Titanic","PG-13","Leonardo DiCaprio, Kate Winslet, Billy Zane","1997","Drama, Romance","A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.","194 min","https://www.imdb.com/video/vi907189785","https://m.media-amazon.com/images/M/MV5BMDdmZGU3NDQtY2E5My00ZTliLWIzOTUtMTY4ZGI1YjdiNjk3XkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SX300.jpg","[{\\\"image\\\":\\\"https://imdb-api.com/images/original/MV5BNzY5MDQzOTAwNV5BMl5BanBnXkFtZTcwNTY0NTk1Nw@@._V1_Ratio1.3600_AL_.jpg\\\",\\\"title\\\":\\\"Kate Winslet in Titanic (1997)\\\"");
         movieRepository.save(m1);
 
         Screening screening01 = new Screening(LocalTime.of(8, 0, 0), LocalDate.of(2021, 12, 8), m1, hall1, cinema1);

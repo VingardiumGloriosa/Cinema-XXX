@@ -47,8 +47,13 @@ public class ScreeningController {
     }
 
     @PutMapping("/edit/{screeningId}")
-    ScreeningDTO editScreening(@RequestBody ScreeningDTO screeningToEdit, @PathVariable int screeningId) throws Exception {
-        return screeningService.editScreening(screeningToEdit,screeningId);
+    ScreeningDTO editScreening(@RequestParam int screeningId,
+                               @RequestParam String date,
+                               @RequestParam String time,
+                               @RequestParam String movieId,
+                               @RequestParam int hallId
+    ) throws Exception {
+        return screeningService.editScreening(screeningId, date, time, movieId, hallId);
     }
 
     @DeleteMapping("/delete-by-id/{screeningId}")

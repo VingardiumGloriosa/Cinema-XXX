@@ -53,10 +53,7 @@ public class MovieController {
 
     @GetMapping
     List<MovieDTO> getAllMovies(){ return movieService.getMovies();}
-
 /*
-
-
     //foreign key constraint with screening table
 
     @DeleteMapping("/delete/{id}")
@@ -80,10 +77,12 @@ public class MovieController {
                 .header("x-rapidapi-host", x_rapidapi_host)
                 .header("x-rapidapi-key", x_rapidapi_key)
                 .asJson();
-        HttpResponse<JsonNode> response2 = Unirest.get("https://imdb-api.com/API/Images/k_b5xul4h1/%22+movieId")
+        HttpResponse<JsonNode> response2 = Unirest.get("https://imdb-api.com/API/Images/k_b5xul4h1/"+movieId)
                 .asJson();
-        HttpResponse<JsonNode> response3 = Unirest.get("https://imdb-api.com/API/Trailer/k_b5xul4h1/%22+movieId")
+        HttpResponse<JsonNode> response3 = Unirest.get("https://imdb-api.com/API/Trailer/k_b5xul4h1/"+movieId)
                 .asJson();
+        System.out.println(response3.toString());
+        System.out.println(response2.toString());
         String temp = response2.getBody().getObject().get("items").toString();
         String[] split = temp.split("}");
         MovieDTO temporary = new MovieDTO(

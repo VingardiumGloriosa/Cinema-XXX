@@ -164,7 +164,7 @@ public class ScreeningService {
 
         ScreeningDTO screening = new ScreeningDTO(screeningRepository.save(newScreening));
 
-        // generating new tickets for the new screening // not working yet
+        // generating new tickets for the new screening
         for (Seat seat: screeningSeats) {
             SeatDTO seatDTO = new SeatDTO(seatRepository.save(seat));
             Ticket ticket = new Ticket(false, admin, seat, newScreening);
@@ -173,18 +173,23 @@ public class ScreeningService {
         }
 
         newScreening.setTickets(screeningTickets);
-
 //        return new ScreeningDTO(screeningRepository.save(newScreening));
+
         return screening;
     }
 
-    public ScreeningDTO editScreening(ScreeningDTO screeningToEdit, int screeningId) {
+    public ScreeningDTO editScreening(int screeningId, String date, String time, String movieId, int hallId) {
+
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        DateTimeFormatter timeFormatter = DateTimeFormatter.ISO_TIME; // "12:30:30"
+
         Screening screeningOrg = screeningRepository.findById(screeningId).orElseThrow();
-        screeningOrg.setCinema(screeningToEdit.getCinema());
-        screeningOrg.setHall(screeningToEdit.getHall());
-        screeningOrg.setTime(screeningToEdit.getTime());
-        screeningOrg.setDate(screeningToEdit.getDate());
-        screeningOrg.setMovie(screeningToEdit.getMovie());
+        screeningOrg.setCinema(hallRepository.findById(hallId).orElseThrow().getCinema());
+        screeningOrg.setHall(hallRepository.findById(hallId).orElseThrow());
+        screeningOrg.setTime(LocalTime.parse(time, timeFormatter));
+        screeningOrg.setDate(LocalDate.parse(date,dateFormatter));
+        screeningOrg.setMovie(movieRepository.findById(movieId).orElseThrow());
+
         return new ScreeningDTO(screeningRepository.save(screeningOrg));
     }
 
