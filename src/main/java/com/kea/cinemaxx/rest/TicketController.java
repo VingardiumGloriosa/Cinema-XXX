@@ -50,7 +50,7 @@ public class TicketController {
     }
 
     @PutMapping("/delete-booking")
-    void deleteBooking(@RequestBody int userId, @RequestParam int ticketId) {
+    void deleteBooking(@RequestParam int userId, @RequestParam int ticketId) {
         ticketService.deleteTicket(userId, ticketId);
     }
 
