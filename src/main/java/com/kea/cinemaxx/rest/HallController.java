@@ -21,9 +21,9 @@ public class HallController {
         return hallService.getHalls(hallId);
     }
 
-    @GetMapping("/{cinemaId}") //not sure if it can be the same as in cinemas
-    HallDTO getHall(@PathVariable int cinemaId){
-        return hallService.getHall(cinemaId);
+    @GetMapping("/{hallId}") //not sure if it can be the same as in cinemas
+    HallDTO getHall(@PathVariable int hallId){
+        return hallService.getHall(hallId);
     }
 
 }
