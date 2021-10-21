@@ -1,11 +1,5 @@
 # Cinema-XXX
 
-
-A README.md file with n-individual sections where EACH MEMBER in the group must explain where he mostly has participated. 
-If you use "funny names" on GitHub the README- file must include a list that maps these names to "study name/ID's" so I can see who has committed what.
-Your README file should also include a link to your hosted server and (if any) the swagger documentation of your endpoints.
-
-
 -------------------------------------------------------------------------------------------------
 Section 1 - Samuel Bartek (GitHub usernames: DedicatedWorker4ever or TheSamuelBartek)
 
@@ -14,7 +8,7 @@ I mostly participated in:
 - Foundation of #1-2(not actual search), Get for #3
 - Setting up dataSetup, connecting entities and adjusting JSON return format
 - Debugging api and going back to make sure points still worked after mergers and adjustments,
-- which broke down
+  which broke down
 - Being Scrum master for first sprint
 
 Special thanks to Chiara who picked up a lot of slack and helped me in many areas.
