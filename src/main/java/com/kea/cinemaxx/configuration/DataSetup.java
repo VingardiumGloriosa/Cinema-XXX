@@ -83,7 +83,7 @@ public class DataSetup implements CommandLineRunner{
         screeningRepository.save(screening03);
         screeningRepository.save(screening04);
 
-        Seat seat1 = new Seat(1,'A',false,hall1);
+        Seat seat1 = new Seat(1,'A',hall1);
         seatRepository.save(seat1);
 
         User user1 = new User(true);
@@ -91,6 +91,11 @@ public class DataSetup implements CommandLineRunner{
 
         Ticket ticket1 = new Ticket(true, user1, seat1, screening01);
         ticketRepository.save(ticket1);
+
+
+
+//        Ticket ticket1 = new Ticket(true, user1, seat1, screening01);
+//        ticketRepository.save(ticket1);
 
     }
 }

@@ -54,4 +54,9 @@ public class TicketController {
         ticketService.deleteTicket(ticketOwnerOrAdmin, ticketId);
     }
 
+    @GetMapping("/getSeats/{purchased}/{screeningId}")
+    List<TicketDTO> getSeatsByBooking(@PathVariable boolean purchased, @PathVariable int screeningId){
+        return ticketService.getSeatsByBooking(purchased, screeningId);
+    }
+
 }

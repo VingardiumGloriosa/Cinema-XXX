@@ -84,4 +84,8 @@ public class TicketService {
         else throw UNAUTHORIZED_USER; //exception declared above
     }
 
+    public List<TicketDTO> getSeatsByBooking(boolean purchased, int screeningId) {
+        return TicketDTO.TicketDTOSfromTicket(ticketRepository.findTicketByPurchasedAndScreening_ScreeningId(purchased, screeningId));
+    }
+
 }
