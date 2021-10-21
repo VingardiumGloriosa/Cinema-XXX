@@ -174,7 +174,6 @@ public class ScreeningService {
 
         newScreening.setTickets(screeningTickets);
 //        return new ScreeningDTO(screeningRepository.save(newScreening));
-
         return screening;
     }
 
