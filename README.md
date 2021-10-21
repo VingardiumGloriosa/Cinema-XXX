@@ -14,7 +14,7 @@ I mostly participated in:
 Special thanks to Chiara who picked up a lot of slack and helped me in many areas.
 
 -------------------------------------------------------------------------------------------------
-Section 2 - Gloria Grofova (GitHub username: MrBigRedButton)
+Section 2 - Gloria Grofova (GitHub username: Glória - VingardiumGloriosa)
 
 I mostly participated in:
 - setting up the movies controller,
@@ -22,7 +22,7 @@ I mostly participated in:
 - making sure that all the data from the external sources would match our system's logic.
 
 -------------------------------------------------------------------------------------------------
-Section 3 - Patrik Selecky (GitHub username: Glória - VingardiumGloriosa)
+Section 3 - Patrik Selecky (GitHub username: MrBigRedButton)
 
 I mostly participated in:
 - setting up the CI/CD pipeline through jenkins
