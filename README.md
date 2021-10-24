@@ -30,7 +30,7 @@ I mostly participated in:
 - partially point 4 of the first sprint and pont 5 of the second sprint
 
 I would like to thank everyone that patiently answered my seemingly never ending questions!
-Many thanks to everyone that helped with making my code actually run.
+Many thanks to everyone that helped with making my code actually run
 
 -------------------------------------------------------------------------------------------------
 Section 4 - Chiara Visca (GitHub username: Chia - chia030)
