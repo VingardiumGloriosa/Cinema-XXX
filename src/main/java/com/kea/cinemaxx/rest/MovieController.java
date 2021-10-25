@@ -107,7 +107,7 @@ public class MovieController {
     }
 
     @GetMapping("test")
-    MovieService techTest(){
-        return this.movieService = movieService;
+    String techTest(){
+        return "this is a test";
     }
 }
