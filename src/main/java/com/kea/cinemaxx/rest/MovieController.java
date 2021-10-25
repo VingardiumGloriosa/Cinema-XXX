@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -108,7 +107,7 @@ public class MovieController {
     }
 
     @GetMapping("test")
-    String techTest(){
-        return "This is a test";
+    MovieService techTest(){
+        return this.movieService = movieService;;
     }
 }
