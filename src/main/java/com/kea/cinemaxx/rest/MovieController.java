@@ -108,6 +108,6 @@ public class MovieController {
 
     @GetMapping("test")
     String techTest(){
-        return "this is a test";
+        return "this is a test for tech presentation";
     }
 }
