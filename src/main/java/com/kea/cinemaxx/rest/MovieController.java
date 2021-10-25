@@ -106,4 +106,9 @@ public class MovieController {
     MovieDTO editMovie(@RequestBody MovieDTO movieToEdit, @PathVariable String id ) throws Exception {
         return movieService.editMovie(movieToEdit,id);
     }
+
+    @GetMapping("test")
+    String techTest(){
+        return "This is a test";
+    }
 }
