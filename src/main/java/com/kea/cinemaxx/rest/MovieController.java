@@ -108,6 +108,6 @@ public class MovieController {
 
     @GetMapping("test")
     MovieService techTest(){
-        return this.movieService = movieService;;
+        return this.movieService = movieService;
     }
 }
