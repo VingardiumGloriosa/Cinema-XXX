@@ -11,9 +11,9 @@ public class WebConfig implements WebMvcConfigurer {
         registry
                 .addMapping("/**")
                 .allowedOrigins(
-                        "http://localhost:9090",
-                        "http://127.0.0.1:9090",
-                        "https://flawless-branch.surge.sh") // this needs to be changed to our url, check out https://surge.sh/
+                        "http://localhost:5500",
+                        "http://127.0.0.1:5500",
+                        "https://cinemaxxx.surge.sh/") // our url, check out https://surge.sh/
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "PATCH")
                 .allowCredentials(true)
                 .maxAge(3600); //1 hour
