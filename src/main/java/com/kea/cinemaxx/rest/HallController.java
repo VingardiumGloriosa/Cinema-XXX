@@ -2,7 +2,7 @@ package com.kea.cinemaxx.rest;
 
 import com.kea.cinemaxx.dtos.CinemaDTO;
 import com.kea.cinemaxx.dtos.HallDTO;
-import com.kea.cinemaxx.services.HallService;
+//import com.kea.cinemaxx.services.HallService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,7 +11,7 @@ import java.util.List;
 @RequestMapping("api/halls")
 public class HallController {
 
-    HallService hallService;
+    /*HallService hallService;
 
     public HallController(HallService hallService){this.hallService = hallService;}
 
@@ -24,6 +24,6 @@ public class HallController {
     @GetMapping("/{hallId}") //not sure if it can be the same as in cinemas
     HallDTO getHall(@PathVariable int hallId){
         return hallService.getHall(hallId);
-    }
+    }*/
 
 }
