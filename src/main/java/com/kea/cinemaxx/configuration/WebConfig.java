@@ -16,7 +16,8 @@ public class WebConfig implements WebMvcConfigurer {
                         "https://cinemaxxx.surge.sh/",
                         "http://54.221.49.14:9090/swagger-ui.html#/",
                         "http://localhost:9090/swagger-ui.html#/",
-                        "http://54.221.49.14:9090") // our url, check out https://surge.sh/
+                        "http://54.221.49.14:9090",
+                        "http://localhost:9090/") // our url, check out https://surge.sh/
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "PATCH")
                 .allowCredentials(true)
                 .maxAge(3600); //1 hour
