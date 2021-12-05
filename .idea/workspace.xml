@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="125402a6-f566-4020-b19b-6a8c036995d4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/kea/cinemaxx/configuration/WebConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kea/cinemaxx/configuration/WebConfig.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,8 +72,10 @@
       <workItem from="1638180708400" duration="14181000" />
       <workItem from="1638291267863" duration="594000" />
       <workItem from="1638361519159" duration="1642000" />
-      <workItem from="1638631968156" duration="1326000" />
-      <workItem from="1638724812317" duration="707000" />
+      <workItem from="1638448766893" duration="50000" />
+      <workItem from="1638459424401" duration="1411000" />
+      <workItem from="1638527792737" duration="601000" />
+      <workItem from="1638539957731" duration="3258000" />
     </task>
     <servers />
   </component>
