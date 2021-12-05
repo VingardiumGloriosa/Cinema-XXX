@@ -46,8 +46,8 @@ Our multiple daily meetings made it so anything we did was achieved through shar
 -------------------------------------------------------------------------------------------------
 Section 5 - Hosted server and Swagger Documentation
 
-Hosted server: http://54.83.119.163:9090/
-Swagger Documentation: http://54.83.119.163:9090/swagger-ui.html#/
+Hosted server: http://54.221.49.14:9090
+Swagger Documentation: http://54.221.49.14:9090/swagger-ui.html#/
 
 
 
