@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="125402a6-f566-4020-b19b-6a8c036995d4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/kea/cinemaxx/configuration/WebConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kea/cinemaxx/configuration/WebConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kea/cinemaxx/configuration/DataSetup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kea/cinemaxx/configuration/DataSetup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kea/cinemaxx/configuration/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kea/cinemaxx/configuration/SwaggerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kea/cinemaxx/configuration/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kea/cinemaxx/configuration/WebConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,126 +76,13 @@
       <workItem from="1638291267863" duration="594000" />
       <workItem from="1638361519159" duration="1642000" />
       <workItem from="1638631968156" duration="1326000" />
-      <workItem from="1638724812317" duration="707000" />
+      <workItem from="1638724812317" duration="1446000" />
+      <workItem from="1638726896364" duration="538000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="UnknownFeatures">
-    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-core" />
-    <option featureType="dependencySupport" implementationName="java:org.slf4j:jul-to-slf4j" />
-    <option featureType="dependencySupport" implementationName="java:jakarta.xml.bind:jakarta.xml.bind-api" />
-    <option featureType="dependencySupport" implementationName="java:org.javassist:javassist" />
-    <option featureType="dependencySupport" implementationName="java:com.zaxxer:HikariCP" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-webmvc" />
-    <option featureType="dependencySupport" implementationName="java:net.minidev:accessors-smart" />
-    <option featureType="dependencySupport" implementationName="java:com.google.code.gson:gson" />
-    <option featureType="dependencySupport" implementationName="java:org.aspectj:aspectjweaver" />
-    <option featureType="dependencySupport" implementationName="java:io.springfox:springfox-swagger2" />
-    <option featureType="dependencySupport" implementationName="java:org.apache.tomcat.embed:tomcat-embed-core" />
-    <option featureType="dependencySupport" implementationName="java:com.fasterxml:classmate" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-test" />
-    <option featureType="dependencySupport" implementationName="java:com.fasterxml.jackson.datatype:jackson-datatype-jsr310" />
-    <option featureType="dependencySupport" implementationName="java:org.hibernate:hibernate-core" />
-    <option featureType="dependencySupport" implementationName="java:org.glassfish.jaxb:jaxb-runtime" />
-    <option featureType="dependencySupport" implementationName="java:org.skyscreamer:jsonassert" />
-    <option featureType="dependencySupport" implementationName="java:org.apache.tomcat.embed:tomcat-embed-websocket" />
-    <option featureType="dependencySupport" implementationName="java:ch.qos.logback:logback-classic" />
-    <option featureType="dependencySupport" implementationName="java:org.glassfish.jaxb:txw2" />
-    <option featureType="dependencySupport" implementationName="java:org.mockito:mockito-junit-jupiter" />
-    <option featureType="dependencySupport" implementationName="java:org.opentest4j:opentest4j" />
-    <option featureType="dependencySupport" implementationName="java:org.objenesis:objenesis" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-tx" />
-    <option featureType="dependencySupport" implementationName="java:org.junit.jupiter:junit-jupiter" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-jcl" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-web" />
-    <option featureType="dependencySupport" implementationName="java:io.swagger:swagger-annotations" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot-starter-logging" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot-starter-aop" />
-    <option featureType="dependencySupport" implementationName="java:org.apache.httpcomponents:httpcore" />
-    <option featureType="dependencySupport" implementationName="java:ch.qos.logback:logback-core" />
-    <option featureType="dependencySupport" implementationName="java:org.json:json" />
-    <option featureType="dependencySupport" implementationName="java:com.fasterxml.jackson.core:jackson-databind" />
-    <option featureType="dependencySupport" implementationName="java:org.apache.logging.log4j:log4j-to-slf4j" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework.plugin:spring-plugin-metadata" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot-starter" />
-    <option featureType="dependencySupport" implementationName="java:org.jboss.logging:jboss-logging" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot-devtools" />
-    <option featureType="dependencySupport" implementationName="java:org.slf4j:slf4j-api" />
-    <option featureType="dependencySupport" implementationName="java:org.ow2.asm:asm" />
-    <option featureType="dependencySupport" implementationName="java:com.google.guava:guava" />
-    <option featureType="dependencySupport" implementationName="java:antlr:antlr" />
-    <option featureType="dependencySupport" implementationName="java:org.yaml:snakeyaml" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot-autoconfigure" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot-test-autoconfigure" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot-starter-json" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-expression" />
-    <option featureType="dependencySupport" implementationName="java:com.fasterxml.jackson.datatype:jackson-datatype-jdk8" />
-    <option featureType="dependencySupport" implementationName="java:org.mapstruct:mapstruct" />
-    <option featureType="dependencySupport" implementationName="java:org.projectlombok:lombok" />
-    <option featureType="dependencySupport" implementationName="java:org.apache.httpcomponents:httpclient" />
-    <option featureType="dependencySupport" implementationName="java:mysql:mysql-connector-java" />
-    <option featureType="dependencySupport" implementationName="java:org.assertj:assertj-core" />
-    <option featureType="dependencySupport" implementationName="java:com.fasterxml.jackson.module:jackson-module-parameter-names" />
-    <option featureType="dependencySupport" implementationName="java:com.vaadin.external.google:android-json" />
-    <option featureType="dependencySupport" implementationName="java:org.apiguardian:apiguardian-api" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-jdbc" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot-starter-jdbc" />
-    <option featureType="dependencySupport" implementationName="java:org.mockito:mockito-core" />
-    <option featureType="dependencySupport" implementationName="java:jakarta.transaction:jakarta.transaction-api" />
-    <option featureType="dependencySupport" implementationName="java:io.springfox:springfox-core" />
-    <option featureType="dependencySupport" implementationName="java:net.bytebuddy:byte-buddy" />
-    <option featureType="dependencySupport" implementationName="java:org.xmlunit:xmlunit-core" />
-    <option featureType="dependencySupport" implementationName="java:org.junit.jupiter:junit-jupiter-params" />
-    <option featureType="dependencySupport" implementationName="java:commons-codec:commons-codec" />
-    <option featureType="dependencySupport" implementationName="java:io.springfox:springfox-spring-web" />
-    <option featureType="dependencySupport" implementationName="java:org.hamcrest:hamcrest" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot-starter-data-jpa" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework.data:spring-data-commons" />
-    <option featureType="dependencySupport" implementationName="java:org.junit.platform:junit-platform-engine" />
-    <option featureType="dependencySupport" implementationName="java:net.bytebuddy:byte-buddy-agent" />
-    <option featureType="dependencySupport" implementationName="java:org.jboss:jandex" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-aspects" />
-    <option featureType="dependencySupport" implementationName="java:io.springfox:springfox-swagger-ui" />
-    <option featureType="dependencySupport" implementationName="java:com.h2database:h2" />
-    <option featureType="dependencySupport" implementationName="java:org.dom4j:dom4j" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot-starter-test" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-beans" />
-    <option featureType="dependencySupport" implementationName="java:com.jayway.jsonpath:json-path" />
-    <option featureType="dependencySupport" implementationName="java:org.hibernate.common:hibernate-commons-annotations" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework.data:spring-data-jpa" />
-    <option featureType="dependencySupport" implementationName="java:io.springfox:springfox-swagger-common" />
-    <option featureType="dependencySupport" implementationName="java:jakarta.activation:jakarta.activation-api" />
-    <option featureType="dependencySupport" implementationName="java:io.springfox:springfox-schema" />
-    <option featureType="dependencySupport" implementationName="java:com.mashape.unirest:unirest-java" />
-    <option featureType="dependencySupport" implementationName="java:org.junit.jupiter:junit-jupiter-engine" />
-    <option featureType="dependencySupport" implementationName="java:org.apache.httpcomponents:httpasyncclient" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot-starter-tomcat" />
-    <option featureType="dependencySupport" implementationName="java:com.fasterxml.jackson.core:jackson-annotations" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot-test" />
-    <option featureType="dependencySupport" implementationName="java:com.fasterxml.jackson.core:jackson-core" />
-    <option featureType="dependencySupport" implementationName="java:org.junit.platform:junit-platform-commons" />
-    <option featureType="dependencySupport" implementationName="java:jakarta.annotation:jakarta.annotation-api" />
-    <option featureType="dependencySupport" implementationName="java:jakarta.persistence:jakarta.persistence-api" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-orm" />
-    <option featureType="dependencySupport" implementationName="java:io.springfox:springfox-bean-validators" />
-    <option featureType="dependencySupport" implementationName="java:org.apache.httpcomponents:httpcore-nio" />
-    <option featureType="dependencySupport" implementationName="java:org.apache.httpcomponents:httpmime" />
-    <option featureType="dependencySupport" implementationName="java:io.swagger:swagger-models" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-context" />
-    <option featureType="dependencySupport" implementationName="java:com.sun.istack:istack-commons-runtime" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-aop" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework.plugin:spring-plugin-core" />
-    <option featureType="dependencySupport" implementationName="java:io.springfox:springfox-spi" />
-    <option featureType="dependencySupport" implementationName="java:org.junit.jupiter:junit-jupiter-api" />
-    <option featureType="dependencySupport" implementationName="java:net.minidev:json-smart" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot-starter-web" />
-    <option featureType="dependencySupport" implementationName="java:org.apache.tomcat.embed:tomcat-embed-el" />
-    <option featureType="dependencySupport" implementationName="java:com.sun.activation:jakarta.activation" />
-    <option featureType="dependencySupport" implementationName="java:org.apache.logging.log4j:log4j-api" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
