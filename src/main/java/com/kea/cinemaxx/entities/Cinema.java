@@ -1,5 +1,6 @@
 package com.kea.cinemaxx.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,8 +31,13 @@ public class Cinema {
     String name;
 
     @OneToMany (mappedBy = "cinema",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-    @JsonManagedReference
+    @JsonIgnore
     List<Hall> halls = new ArrayList<>();
+
+    @OneToMany (mappedBy = "cinema",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @JsonIgnore
+    List<Screening> screenings = new ArrayList<>();
+
 
     public Cinema() {}
 

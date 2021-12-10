@@ -1,5 +1,6 @@
 package com.kea.cinemaxx.repositiories;
 
+import com.kea.cinemaxx.entities.Cinema;
 import com.kea.cinemaxx.entities.Hall;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

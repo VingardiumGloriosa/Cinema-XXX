@@ -1,6 +1,7 @@
 package com.kea.cinemaxx.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,12 +25,11 @@ public class Seat {
 
     //orphanRemoval will delete any tickets for this seat when the seat is deleted
     @OneToMany (orphanRemoval = true, mappedBy = "seat", cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-    @JsonManagedReference ("ticketForSeat")
+    @JsonIgnore
     List<Ticket> tickets;
 
     @ManyToOne
     @JoinColumn(name = "hall_id", nullable = false)
-    @JsonBackReference
     Hall hall;
 
     public Seat(){}

@@ -7,7 +7,9 @@ import com.kea.cinemaxx.entities.Ticket;
 import com.kea.cinemaxx.entities.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.Setter;
+import org.springframework.lang.Nullable;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -20,7 +22,7 @@ public class TicketDTO {
 
     int ticketId;
     boolean purchased;
-    User user; // the user CAN be null since some tickets will not be purchased yet
+    User user; //default user is user#1 (admin)
     Seat seat;
     Screening screening;
 

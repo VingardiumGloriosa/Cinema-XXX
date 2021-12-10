@@ -1,5 +1,6 @@
 package com.kea.cinemaxx.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,15 +20,13 @@ public class User {
     @Column(length = 1,nullable = false)
     boolean admin;
 
-//    I'm not sure a userName is even needed!
-//    @Column(length = 60,nullable = false)
-//    String userName;
-
-    @OneToMany(orphanRemoval = true, mappedBy = "user", cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-    @JsonManagedReference ("ticketsToUser")
+    @OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @JsonIgnore
     List<Ticket> tickets = new ArrayList<>();
 
     public User() {}
+
+    public User(int userId) { this.userId = userId; }
 
     public User(boolean admin) {
         this.admin = admin;

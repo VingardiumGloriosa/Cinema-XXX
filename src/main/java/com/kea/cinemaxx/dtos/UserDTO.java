@@ -25,6 +25,7 @@ public class UserDTO {
 
     public UserDTO(User user) {
         this.admin = user.isAdmin();
+        this.userId = user.getUserId();
     }
 
     public static List<UserDTO> UserDTOSfromUser(Iterable<User> users){

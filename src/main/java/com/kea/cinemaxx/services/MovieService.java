@@ -68,7 +68,7 @@ public class MovieService {
         return new MovieDTO(movieRepository.save(movieToMake));
     }
 
-    public MovieDTO editMovie(MovieDTO movieDTO, int id){
+    public MovieDTO editMovie(MovieDTO movieDTO, String id){
         Movie movieOriginal = movieRepository.findById(id).orElseThrow();
         movieOriginal.setActors(movieDTO.getActors());
         movieOriginal.setDescription(movieDTO.getDescription());
