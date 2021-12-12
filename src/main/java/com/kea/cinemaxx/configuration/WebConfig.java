@@ -27,6 +27,7 @@ public class WebConfig implements WebMvcConfigurer {
                 .allowedOrigins(
                         "http://localhost:5500",
                         "http://127.0.0.1:5500",
+                        "http://127.0.0.1:5501",
                         "http://cinemaxxx.surge.sh/") // our url, check out https://surge.sh/)
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "PATCH")
                 .allowCredentials(true)
