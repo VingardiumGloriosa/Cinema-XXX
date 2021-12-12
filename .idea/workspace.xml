@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="125402a6-f566-4020-b19b-6a8c036995d4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kea/cinemaxx/configuration/DataSetup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kea/cinemaxx/configuration/DataSetup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kea/cinemaxx/configuration/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kea/cinemaxx/configuration/SwaggerConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kea/cinemaxx/configuration/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kea/cinemaxx/configuration/WebConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +75,10 @@
       <workItem from="1638361519159" duration="1642000" />
       <workItem from="1638631968156" duration="1326000" />
       <workItem from="1638724812317" duration="1446000" />
-      <workItem from="1638726896364" duration="538000" />
+      <workItem from="1638726896364" duration="1904000" />
+      <workItem from="1639224742542" duration="2845000" />
+      <workItem from="1639243006823" duration="1406000" />
+      <workItem from="1639307394370" duration="781000" />
     </task>
     <servers />
   </component>
