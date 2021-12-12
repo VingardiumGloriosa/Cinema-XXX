@@ -5,14 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="125402a6-f566-4020-b19b-6a8c036995d4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kea/cinemaxx/rest/CinemaController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kea/cinemaxx/services/HallService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kea/cinemaxx/configuration/DataSetup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kea/cinemaxx/configuration/DataSetup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kea/cinemaxx/rest/HallController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kea/cinemaxx/rest/HallController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -20,12 +33,14 @@
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
       <map>
+        <entry key="JPA Inspector" value="true" />
         <entry key="JPA Palette" value="true" />
         <entry key="JPA Structure" value="true" />
       </map>
     </option>
     <option name="myId2Visible">
       <map>
+        <entry key="JPA Inspector" value="true" />
         <entry key="JPA Palette" value="false" />
         <entry key="JPA Structure" value="true" />
       </map>
@@ -45,6 +60,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -78,7 +94,8 @@
       <workItem from="1638726896364" duration="1904000" />
       <workItem from="1639224742542" duration="2845000" />
       <workItem from="1639243006823" duration="1406000" />
-      <workItem from="1639307394370" duration="781000" />
+      <workItem from="1639307394370" duration="2439000" />
+      <workItem from="1639310043967" duration="627000" />
     </task>
     <servers />
   </component>
