@@ -111,6 +111,11 @@ public class MovieController {
         return movieService.editMovieDescription(id, description);
     }
 
+    @PutMapping("/editRating/{id}/{description}")
+    MovieDTO editMovieRating(@PathVariable String id, @PathVariable String rating) throws Exception {
+        return movieService.editMovieRating(id, rating);
+    }
+
     @GetMapping("test")
     String techTest(){
         return "this is a test for tech presentation";

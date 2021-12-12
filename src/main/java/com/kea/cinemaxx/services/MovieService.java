@@ -86,6 +86,12 @@ public class MovieService {
         return new MovieDTO(movieRepository.save(movieOriginal));
     }
 
+    public MovieDTO editMovieRating(String id, String rating){
+        Movie movieOriginal = movieRepository.findById(id).orElseThrow();
+        movieOriginal.setRating(rating);
+        return new MovieDTO(movieRepository.save(movieOriginal));
+    }
+
     // We don't need the following for now but we'll need it next week :D
     //    List<Movie> findMovieByRating(int rating);
     //    List<Movie> findMovieByYear(int year);
