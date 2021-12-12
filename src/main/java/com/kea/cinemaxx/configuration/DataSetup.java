@@ -109,9 +109,9 @@ import java.time.LocalTime;
 //                ticketRepository.save(ticket2);
 //            }
 //        }
-//
-//        //Ticket ticket1 = new Ticket(true, user1, seat, screening01);
-//        //ticketRepository.save(ticket1);
+
+        //Ticket ticket1 = new Ticket(true, user1, seat, screening01);
+        //ticketRepository.save(ticket1);
 //
 //    }
 //}

@@ -42,10 +42,21 @@ public class TicketService {
         else {
             throw UNAUTHORIZED_USER;
         }
+
     }
 
     public List<TicketDTO> getTickets() {
         Iterable<Ticket> tickets = ticketRepository.findAll();
+        return TicketDTO.TicketDTOSfromTicket(tickets);
+    }
+
+    public List<TicketDTO> getTicketsByScreening(int id) {
+        Iterable<Ticket> tickets = ticketRepository.findByScreening_ScreeningId(id);
+        return TicketDTO.TicketDTOSfromTicket(tickets);
+    }
+
+    public List<TicketDTO> getTicketsByUser(int id) {
+        Iterable<Ticket> tickets = ticketRepository.findByUser_UserIdAndPurchased(id, true);
         return TicketDTO.TicketDTOSfromTicket(tickets);
     }
 
