@@ -55,6 +55,11 @@ public class TicketService {
         return TicketDTO.TicketDTOSfromTicket(tickets);
     }
 
+    public List<TicketDTO> getTicketsByUser(int id) {
+        Iterable<Ticket> tickets = ticketRepository.findByUser_UserId(id);
+        return TicketDTO.TicketDTOSfromTicket(tickets);
+    }
+
     public TicketDTO getTicket(int ticketId) {
         Ticket ticket = ticketRepository.findById(ticketId).orElseThrow();
         return new TicketDTO(ticket);

@@ -36,6 +36,11 @@ public class TicketController {
         return ticketService.getSeatsByBooking(purchased, screeningId, userId);
     }
 
+    @GetMapping("/get-by-user/{id}")
+    List<TicketDTO> getTicketsByUser(@PathVariable int id) {
+        return ticketService.getTicketsByUser(id);
+    }
+
     @PostMapping()
     TicketDTO addTicket(@RequestBody TicketDTO newTicket){
         return ticketService.addTicket(newTicket);
