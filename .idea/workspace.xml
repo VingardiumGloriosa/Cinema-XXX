@@ -8,7 +8,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kea/cinemaxx/configuration/DataSetup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kea/cinemaxx/configuration/DataSetup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kea/cinemaxx/configuration/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kea/cinemaxx/configuration/SwaggerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kea/cinemaxx/configuration/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kea/cinemaxx/configuration/WebConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +78,6 @@
       <workItem from="1638631968156" duration="1326000" />
       <workItem from="1638724812317" duration="1446000" />
       <workItem from="1638726896364" duration="538000" />
-      <workItem from="1639304915729" duration="426000" />
     </task>
     <servers />
   </component>
