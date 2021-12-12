@@ -14,6 +14,8 @@ public interface TicketRepository extends CrudRepository<Ticket, Integer> {
         List<Ticket> findAll();
         Ticket findBySeat(Seat seat);
 
+        List<Ticket> findByScreening_ScreeningId(int screeningId);
+
         List<Ticket> findTicketByPurchasedAndScreening_ScreeningId(boolean purchased, int screeningId);
 
 
