@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="125402a6-f566-4020-b19b-6a8c036995d4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/77dcffb6-00f6-41c1-9fee-fc42bf1b2a92.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/77dcffb6-00f6-41c1-9fee-fc42bf1b2a92.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kea/cinemaxx/repositiories/TicketRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kea/cinemaxx/repositiories/TicketRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kea/cinemaxx/rest/TicketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kea/cinemaxx/rest/TicketController.java" afterDir="false" />
@@ -92,7 +93,8 @@
       <workItem from="1639307394370" duration="2439000" />
       <workItem from="1639310043967" duration="1467000" />
       <workItem from="1639316501477" duration="2258000" />
-      <workItem from="1639325435606" duration="248000" />
+      <workItem from="1639325435606" duration="465000" />
+      <workItem from="1639326033990" duration="118000" />
     </task>
     <servers />
   </component>

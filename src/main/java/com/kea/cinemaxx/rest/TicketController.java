@@ -37,7 +37,7 @@ public class TicketController {
     }
 
     @GetMapping("/get-by-user/{id}")
-    List<TicketDTO> getTicketsByUser(@PathVariable int id) {
+    List<TicketDTO> getPurchasedTicketsByUser(@PathVariable int id) {
         return ticketService.getTicketsByUser(id);
     }
 
