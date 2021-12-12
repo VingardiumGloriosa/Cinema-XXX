@@ -16,9 +16,9 @@ public class HallController {
     public HallController(HallService hallService){this.hallService = hallService;}
 
     @GetMapping
-    List<HallDTO> getHalls(@RequestParam(required = false) int hallId){
+    List<HallDTO> getHalls(){
 
-        return hallService.getHalls(hallId);
+        return hallService.getHalls();
     }
 
     @GetMapping("/{hallId}") //not sure if it can be the same as in cinemas
