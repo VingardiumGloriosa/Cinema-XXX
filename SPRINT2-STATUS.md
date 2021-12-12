@@ -7,3 +7,19 @@ We committed to completing points 1-7 and we did it.
 5. Endpoint to let an authenticated admin get a list of free/booked seats for a  given cinema hall, date and time - Done!
 6. Get data from external resource  → Are you OK with this? (I would like data to be stored locally after the first external fetch, to increase performance) - Done!
 7. Endpoint to let an authenticated user cancel/edit a booking - Done!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+........................
